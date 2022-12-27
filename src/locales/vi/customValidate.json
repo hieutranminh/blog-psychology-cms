@@ -1,0 +1,16 @@
+{
+  "required": "{_field_}は必須です。(VI)",
+  "min": "{_field_}は{length}以上で入力してください。(VI)",
+  "max": "{_field_}は{length}以下で入力してください。(VI)",
+  "password": "パスワードには以下の文字種のみ使用可能です。<br/>半角アルファベット小文字、半角アルファベット大文字、半角数字、記号!_/`()+-=$#&@~ (VI)",
+  "note_max": "{_field_}は{current}以下で入力してください。(VI)",
+  "compare_user_point": "減らすポイントは所持ポイント以下で入力してください。(VI)",
+  "format_url": "正しい形式のURLを指定してください。(VI)",
+  "email": "メールアドレスはメールアドレスの形式で入力してください。(VI)",
+  "phone_number": "ハイフンまたは半角数字のみ使用可能です。(VI)",
+  "half_width_number": "{_field_}は半角数字で入力ください。(VI)",
+  "compare_date_range": "toはfromより後に設定してください。(VI)",
+  "image": "{_field_}はJPEG、PNG、GIFファイルを選択ください。(VI)",
+  "size": "5MB以下のファイルを使用してください。(VI)",
+  "ext": "{_field_}はJPEG、PNG、GIFファイルを選択ください。(VI)"
+}

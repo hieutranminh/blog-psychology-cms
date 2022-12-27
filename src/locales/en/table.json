@@ -1,0 +1,101 @@
+{
+  "TABLE_HOME": {
+    "advertising_title": "広告タイトル (EN)",
+    "afad_advertising_id": "AFAD広告ID (EN)"
+  },
+  "TABLE_USER": {
+    "id": "ID (EN)",
+    "user_name": "ニックネーム (EN)",
+    "ownership_point": "保有ポイント (EN)",
+    "email": "メールアドレス (EN)",
+    "time_login_last": "最終ログイン日時 (EN)"
+  },
+  "TABLE_POINT_DETAIL": {
+    "status_user": "ステータス (EN)",
+    "used_datetime": "利用日時 (EN)",
+    "earned_datetime": "付与日時 (EN)",
+    "given_from": "対象・名目 (EN)",
+    "point": "ポイント (EN)"
+  },
+  "TABLE_POINT_EXCHANGE_HISTORY": {
+    "status_user": "ステータス (EN)",
+    "application_datetime": "申請日時 (EN)",
+    "exchange_completion_datetime": "交換完了日時 (EN)",
+    "exchange_service_name": "交換先サービス名 (EN)",
+    "point": "ポイント (EN)"
+  },
+  "TABLE_POINT_EDIT_HISTORY": {
+    "date_edit": "実施日時 (EN)",
+    "point": "ポイント (EN)",
+    "field": "名目 (EN)",
+    "operator": "操作者 (EN)",
+    "note": "メモ (EN)"
+  },
+  "TABLE_ADVERTISING": {
+    "id": "ID (EN)",
+    "title": "タイトル (EN)",
+    "normal_point": "通常ポイント (EN)",
+    "campaign_point": "キャンペーンポイント (EN)",
+    "achievement_reward": "成果報酬 (EN)",
+    "company_name": "企業名 (EN)",
+    "sum_and_max_request": "申込数 / 上限数 (EN)",
+    "sum_and_max_reward": "累計額 / 上限額 (EN)",
+    "type": "分類 (EN)"
+  },
+  "TABLE_POINT_ACQUISITION_HISTORY": {
+    "status_user": "ステータス (EN)",
+    "user_name": "ニックネーム (EN)",
+    "date_time": "日時 (EN)"
+  },
+  "TABLE_CATEGORY": {
+    "order": "並び順 (EN)",
+    "category_big": "大区分 (EN)",
+    "category_middle": "中区分 (EN)",
+    "category_small": "小区分 (EN)"
+  },
+  "TABLE_CATEGORY_RANKING": {
+    "ranking_order": "順位 (EN)",
+    "category_big": "大区分 (EN)",
+    "category_middle": "中区分 (EN)",
+    "category_small": "小区分 (EN)"
+  },
+  "TABLE_CATEGORY_RANKING_AD": {
+    "ranking_order": "順位 (EN)",
+    "name_advertising": "広告名 (EN)"
+  },
+  "TABLE_PICKUP": {
+    "order": "並び順 (EN)",
+    "title": "タイトル (EN)",
+    "pickup_normal_point": "ユーザー還元ポイント(通常) (EN)",
+    "pickup_campaign_point": "ユーザー還元ポイント(キャンペーン) (EN)",
+    "pickup_achievement_reward": "成果報酬 (EN)",
+    "company_name": "企業名 (EN)",
+    "ad_public_status": "広告公開状況 (EN)",
+    "posting_start_date": "掲載開始日時 (EN)",
+    "posting_end_date": "掲載終了日時 (EN)"
+  },
+  "TABLE_FEATURE": {
+    "order": "並び順 (EN)",
+    "title": "タイトル (EN)"
+  },
+  "TABLE_BANNER": {
+    "manage_name": "管理名称 (EN)"
+  },
+  "TABLE_ADMIN": {
+    "admin_name": "管理者名 (EN)",
+    "active_status": "利用状況 (EN)",
+    "role": "権限 (EN)",
+    "time_login_last": "最終ログイン日時 (EN)"
+  },
+  "TABLE_NEWS": {
+    "transition": "遷移先 (EN)"
+  },
+  "TABLE_DATA_POINT": {
+    "month": "月 (EN)",
+    "earned_point": "付与ポイント (EN)",
+    "invalid_point": "失効ポイント (EN)",
+    "exchange_point_gift": "Gift Pad (EN)",
+    "exchange_point_g_point": "Gポイント (EN)",
+    "exchange_point_dot_money": "ドットマネー (EN)"
+  }
+}

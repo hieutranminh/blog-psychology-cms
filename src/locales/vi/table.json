@@ -1,0 +1,101 @@
+{
+  "TABLE_HOME": {
+    "advertising_title": "広告タイトル (VI)",
+    "afad_advertising_id": "AFAD広告ID (VI)"
+  },
+  "TABLE_USER": {
+    "id": "ID (VI)",
+    "user_name": "ニックネーム (VI)",
+    "ownership_point": "保有ポイント (VI)",
+    "email": "メールアドレス (VI)",
+    "time_login_last": "最終ログイン日時 (VI)"
+  },
+  "TABLE_POINT_DETAIL": {
+    "status_user": "ステータス (VI)",
+    "used_datetime": "利用日時 (VI)",
+    "earned_datetime": "付与日時 (VI)",
+    "given_from": "対象・名目 (VI)",
+    "point": "ポイント (VI)"
+  },
+  "TABLE_POINT_EXCHANGE_HISTORY": {
+    "status_user": "ステータス (VI)",
+    "application_datetime": "申請日時 (VI)",
+    "exchange_completion_datetime": "交換完了日時 (VI)",
+    "exchange_service_name": "交換先サービス名 (VI)",
+    "point": "ポイント (VI)"
+  },
+  "TABLE_POINT_EDIT_HISTORY": {
+    "date_edit": "実施日時 (VI)",
+    "point": "ポイント (VI)",
+    "field": "名目 (VI)",
+    "operator": "操作者 (VI)",
+    "note": "メモ (VI)"
+  },
+  "TABLE_ADVERTISING": {
+    "id": "ID (VI)",
+    "title": "タイトル (VI)",
+    "normal_point": "通常ポイント (VI)",
+    "campaign_point": "キャンペーンポイント (VI)",
+    "achievement_reward": "成果報酬 (VI)",
+    "company_name": "企業名 (VI)",
+    "sum_and_max_request": "申込数 / 上限数 (VI)",
+    "sum_and_max_reward": "累計額 / 上限額 (VI)",
+    "type": "分類 (VI)"
+  },
+  "TABLE_POINT_ACQUISITION_HISTORY": {
+    "status_user": "ステータス (VI)",
+    "user_name": "ニックネーム (VI)",
+    "date_time": "日時 (VI)"
+  },
+  "TABLE_CATEGORY": {
+    "order": "並び順 (VI)",
+    "category_big": "大区分 (VI)",
+    "category_middle": "中区分 (VI)",
+    "category_small": "小区分 (VI)"
+  },
+  "TABLE_CATEGORY_RANKING": {
+    "ranking_order": "順位 (VI)",
+    "category_big": "大区分 (VI)",
+    "category_middle": "中区分 (VI)",
+    "category_small": "小区分 (VI)"
+  },
+  "TABLE_CATEGORY_RANKING_AD": {
+    "ranking_order": "順位 (VI)",
+    "name_advertising": "広告名 (VI)"
+  },
+  "TABLE_PICKUP": {
+    "order": "並び順 (VI)",
+    "title": "タイトル (VI)",
+    "pickup_normal_point": "ユーザー還元ポイント(通常) (VI)",
+    "pickup_campaign_point": "ユーザー還元ポイント(キャンペーン) (VI)",
+    "pickup_achievement_reward": "成果報酬 (VI)",
+    "company_name": "企業名 (VI)",
+    "ad_public_status": "広告公開状況 (VI)",
+    "posting_start_date": "掲載開始日時 (VI)",
+    "posting_end_date": "掲載終了日時 (VI)"
+  },
+  "TABLE_FEATURE": {
+    "order": "並び順 (VI)",
+    "title": "タイトル (VI)"
+  },
+  "TABLE_BANNER": {
+    "manage_name": "管理名称 (VI)"
+  },
+  "TABLE_ADMIN": {
+    "admin_name": "管理者名 (VI)",
+    "active_status": "利用状況 (VI)",
+    "role": "権限 (VI)",
+    "time_login_last": "最終ログイン日時 (VI)"
+  },
+  "TABLE_NEWS": {
+    "transition": "遷移先 (VI)"
+  },
+  "TABLE_DATA_POINT": {
+    "month": "月 (VI)",
+    "earned_point": "付与ポイント (VI)",
+    "invalid_point": "失効ポイント (VI)",
+    "exchange_point_gift": "Gift Pad (VI)",
+    "exchange_point_g_point": "Gポイント (VI)",
+    "exchange_point_dot_money": "ドットマネー (VI)"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "required": "The {_field_} field is required",
+  "min": "The {_field_} field must be at least {length} characters",
+  "max": "The {_field_} field may not be greater than {length} characters",
+  "password": "Only the following character types can be used for the password.<br/>Half-width lowercase alphabet, half-width uppercase alphabet, half-width numbers, symbols !_/`()+-=$#&@~",
+  "note_max": "Please enter {_field_} below {current}.",
+  "compare_user_point": "Please enter the number of points to be reduced below the number of points you have.",
+  "format_url": "Please specify a URL in the correct format.",
+  "email": "The {_field_} field must be a valid email",
+  "phone_number": "Only hyphens or single-byte numbers are allowed.",
+  "half_width_number": "Please enter {_field_} in single-byte numbers.",
+  "compare_date_range": "Set to after from.",
+  "image": "Please select a JPEG, PNG, or GIF file for {_field_}.",
+  "size": "Please use files no larger than 5MB.",
+  "ext": "Please select a JPEG, PNG, or GIF file for {_field_}."
+}

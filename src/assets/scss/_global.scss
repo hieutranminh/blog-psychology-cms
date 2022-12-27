@@ -1,0 +1,35 @@
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+body {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+input,
+button,
+select,
+textarea {
+  outline: none;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14px;
+}
+input {
+  line-height: normal;
+}
+button {
+  cursor: pointer;
+}
+
+// fix break word in table ant-design
+.news {
+  table {
+    td {
+      word-break: break-all;
+    }
+  }
+}
