@@ -1,6 +1,7 @@
 {
   "COMMON": {
     "logo": "Hệ thống quản lý",
+    "big_title": "Tiêu đề lớn:",
     "title": "Tiêu đề:",
     "description": "Miêu tả:",
     "txt_button": "Nút:",
@@ -48,6 +49,13 @@
   },
   "HOME": {
     "title": "Trang chủ",
-    "title_manage_banner": "Quản lý banner"
+    "title_manage_banner": "Quản lý banner",
+    "title_manage_section_01": "Quản lý bố cục ( EXPERIENCED & QUALIFIED )",
+    "title_manage_section_02": "Quản lý bố cục ( PRIVACY )",
+    "title_manage_section_03": "Quản lý bố cục ( SCIENTIFIC & HOLISTIC )",
+    "title_manage_section_04": "Quản lý bố cục ( KINDNESS & RESPECT )",
+    "title_manage_section_05": "Quản lý bố cục ( SAFE SPACE )",
+    "title_manage_section_06": "Quản lý bố cục ( ONGOING SUPPORT )",
+    "title_manage_section_07": "Quản lý bố cục ( 3 Column )"
   }
 }
