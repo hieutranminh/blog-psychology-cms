@@ -13,8 +13,8 @@ export const axiosConfig = {
 
 // Config Request Interceptor
 export const axiosInterceptorRequestConfig = (config) => {
-  if (Cookie.get('dmk_cms_token')) {
-    config.headers.Authorization = `Bearer ${Cookie.get('dmk_cms_token')}`
+  if (Cookie.get('bearer_cms_token')) {
+    config.headers.Authorization = `Bearer ${Cookie.get('bearer_cms_token')}`
   }
 
   // eslint-disable-next-line no-prototype-builtins

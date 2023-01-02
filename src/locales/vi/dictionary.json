@@ -32,7 +32,8 @@
   },
   "BUTTON": {
     "login": "Đăng nhập",
-    "logout": "Đăng xuất"
+    "logout": "Đăng xuất",
+    "edit": "Chỉnh sửa"
   },
   "FIELD": {
     "email": "Địa chỉ email",
@@ -50,12 +51,12 @@
   "HOME": {
     "title": "Trang chủ",
     "title_manage_banner": "Quản lý banner",
-    "title_manage_section_01": "Quản lý bố cục ( EXPERIENCED & QUALIFIED )",
-    "title_manage_section_02": "Quản lý bố cục ( PRIVACY )",
-    "title_manage_section_03": "Quản lý bố cục ( SCIENTIFIC & HOLISTIC )",
-    "title_manage_section_04": "Quản lý bố cục ( KINDNESS & RESPECT )",
-    "title_manage_section_05": "Quản lý bố cục ( SAFE SPACE )",
-    "title_manage_section_06": "Quản lý bố cục ( ONGOING SUPPORT )",
-    "title_manage_section_07": "Quản lý bố cục ( 3 Column )"
+    "title_manage_section_01": "Quản lý bố cục 1",
+    "title_manage_section_02": "Quản lý bố cục 2",
+    "title_manage_section_03": "Quản lý bố cục 3",
+    "title_manage_section_04": "Quản lý bố cục 4",
+    "title_manage_section_05": "Quản lý bố cục 5",
+    "title_manage_section_06": "Quản lý bố cục 6",
+    "title_manage_section_07": "Quản lý bố cục 7"
   }
 }

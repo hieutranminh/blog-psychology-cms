@@ -33,13 +33,13 @@
 
       <div class="d-flex align-items-center mb-3">
         <!--Forgot password-->
-        <router-link :to="{ name: 'forgot-password' }"
-                     custom
-                     v-slot="{ navigate }">
-          <a @click="navigate"
-             class="forgot-password"
-             v-text="$t('AUTH.forgot_password')"/>
-        </router-link>
+<!--        <router-link :to="{ name: 'forgot-password' }"-->
+<!--                     custom-->
+<!--                     v-slot="{ navigate }">-->
+<!--          <a @click="navigate"-->
+<!--             class="forgot-password"-->
+<!--             v-text="$t('AUTH.forgot_password')"/>-->
+<!--        </router-link>-->
 
         <!--Submit login-->
         <a-button type="primary"
@@ -74,8 +74,8 @@ export default {
   data () {
     return {
       form: {
-        email: '',
-        password: ''
+        email: 'admin@admin.com',
+        password: 'password'
       },
       isSubmit: false
     }
@@ -97,31 +97,16 @@ export default {
       this.isSubmit = true
 
       // handle API LOGIN
-      // this.userLogin(this.form).then(result => {
-      //   if (result.success) {
-      //     this.onSuccess(this.$t('NOTIFICATION.title_completion'), this.$t('NOTIFICATION.msg_login_success'))
-      //     this.$router.push({ name: 'home' })
-      //     this.isSubmit = false
-      //   } else {
-      //     if (result.code === 422) {
-      //       this.handleSetErrors(result.errors)
-      //     } else {
-      //       this.onError(this.$t('NOTIFICATION.title_fail'), this.$t('NOTIFICATION.msg_login_fail'))
-      //     }
-      //     this.isSubmit = false
-      //   }
-      // })
-      this.onSuccess(this.$t('NOTIFICATION.title_completion'), this.$t('NOTIFICATION.msg_login_success'))
-      this.$router.push({ name: 'home' })
-      this.isSubmit = false
-    },
-
-    handleSetErrors (errors) {
-      errors.forEach(x => (
-        this.$refs.observer.setErrors({
-          [x.field]: x.message
-        })
-      ))
+      this.userLogin(this.form).then(result => {
+        if (result.status === 200) {
+          this.onSuccess(this.$t('NOTIFICATION.title_completion'), this.$t('NOTIFICATION.msg_login_success'))
+          this.$router.push({ name: 'home' })
+          this.isSubmit = false
+        } else {
+          this.onError(this.$t('NOTIFICATION.title_fail'), this.$t('NOTIFICATION.msg_login_fail'))
+          this.isSubmit = false
+        }
+      })
     }
   }
 }

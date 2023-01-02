@@ -1,5 +1,16 @@
 <template>
   <div class="container">
+    <div class="text-right mb-3">
+      <router-link
+        :to="{name: 'home.edit'}">
+        <a-button
+          type="primary"
+          class="font-weight-bold"
+          icon="edit">
+          {{$t('BUTTON.edit')}}
+        </a-button>
+      </router-link>
+    </div>
     <a-card :title="$t('HOME.title_manage_banner')" class="mb-4">
       <HomeInfo
         title="We know the science behind your mind. Let's work together."
@@ -62,7 +73,38 @@ You will also get exclusive access to online videos, audio files and e-guides wh
     </a-card>
 
     <a-card :title="$t('HOME.title_manage_section_07')" class="mb-4">
-      <p>Card content</p>
+      <a-row :gutter="16">
+        <a-col :span="8">
+          <a-card>
+            <img
+              slot="cover"
+              alt="example"
+              src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+            />
+            <a-card-meta title="Card title" description="This is the description"/>
+          </a-card>
+        </a-col>
+        <a-col :span="8">
+          <a-card>
+            <img
+              slot="cover"
+              alt="example"
+              src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+            />
+            <a-card-meta title="Card title" description="This is the description"/>
+          </a-card>
+        </a-col>
+        <a-col :span="8">
+          <a-card>
+            <img
+              slot="cover"
+              alt="example"
+              src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+            />
+            <a-card-meta title="Card title" description="This is the description"/>
+          </a-card>
+        </a-col>
+      </a-row>
     </a-card>
   </div>
 </template>

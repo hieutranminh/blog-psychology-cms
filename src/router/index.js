@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import { LoginGuard, AuthGuard, ResolveGuard } from '@/router/guards'
+import { LoginGuard, AuthGuard, ResolveGuard } from '@/router/guards'
 
 // Route Module
 import AuthRoute from './modules/auth'
@@ -22,8 +22,8 @@ const routes = [
     component: () => import('@/views/Auth.vue'),
     children: [
       ...AuthRoute
-    ]
-    // beforeEnter: ResolveGuard([LoginGuard])
+    ],
+    beforeEnter: ResolveGuard([LoginGuard])
   },
 
   // Main
@@ -39,8 +39,8 @@ const routes = [
       ...UserRoute,
       ...AdminRoute,
       ...ErrorsRoute
-    ]
-    // beforeEnter: ResolveGuard([AuthGuard])
+    ],
+    beforeEnter: ResolveGuard([AuthGuard])
   },
 
   // Page not found

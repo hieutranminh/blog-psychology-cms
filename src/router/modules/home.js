@@ -1,5 +1,4 @@
 import Resource from '@/components/Resource'
-import { PERMISSION } from '@/enum/permission'
 
 export default [
   {
@@ -9,18 +8,25 @@ export default [
       {
         path: '',
         name: 'home',
-        component: () => import('@/views/Home.vue'),
+        component: () => import('@/views/home/Index.vue'),
         meta: {
           title: 'HOME.title',
           breadcrumb: [
             { title: 'HOME.title' }
           ],
-          scrollTop: true,
-          permissions: [
-            PERMISSION.FULL_ROLE,
-            PERMISSION.OPERATOR,
-            PERMISSION.VIEWER
-          ]
+          scrollTop: true
+        }
+      },
+      {
+        path: '/home/edit',
+        name: 'home.edit',
+        component: () => import('@/views/home/Edit'),
+        meta: {
+          title: 'HOME.title',
+          breadcrumb: [
+            { title: 'HOME.title' }
+          ],
+          scrollTop: true
         }
       }
     ]

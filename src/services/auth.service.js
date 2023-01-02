@@ -3,15 +3,15 @@ import { ApiService } from './api.service'
 const BaseUrl = 'auth'
 
 export function login (params = {}) {
-  return ApiService.post(`${BaseUrl}/login`, params).then((resp) => resp.data)
+  return ApiService.post(`${BaseUrl}/login`, params).then((resp) => resp)
 }
 
 export function logout (params = {}) {
-  return ApiService.post(`${BaseUrl}/logout`, params).then((resp) => resp.data)
+  return ApiService.delete(`${BaseUrl}/logout`, params).then((resp) => resp.data)
 }
 
 export function profile (params = {}) {
-  return ApiService.get(`${BaseUrl}/me`).then((resp) => resp.data)
+  return ApiService.get(`${BaseUrl}/profile`).then((resp) => resp.data)
 }
 
 export function checkToken (params = {}) {
