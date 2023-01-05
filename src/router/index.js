@@ -5,9 +5,9 @@ import { LoginGuard, AuthGuard, ResolveGuard } from '@/router/guards'
 // Route Module
 import AuthRoute from './modules/auth'
 import HomeRoute from './modules/home'
+import StoryRoute from './modules/story'
 import TeamRoute from './modules/team'
 import NewsRoute from './modules/news'
-import UserRoute from './modules/user'
 import AdminRoute from './modules/admin'
 import ErrorsRoute from './modules/errors'
 
@@ -34,9 +34,9 @@ const routes = [
     component: () => import('@/views/Index.vue'),
     children: [
       ...HomeRoute,
+      ...StoryRoute,
       ...TeamRoute,
       ...NewsRoute,
-      ...UserRoute,
       ...AdminRoute,
       ...ErrorsRoute
     ],

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="text-right mb-3">
       <router-link
-        :to="{name: 'home.edit'}">
+        :to="{name: 'story.edit'}">
         <a-button
           type="primary"
           class="font-weight-bold"
@@ -11,15 +11,6 @@
         </a-button>
       </router-link>
     </div>
-    <a-card :title="$t('TITLE.manage_banner')" class="mb-4">
-      <HomeInfo
-        title="We know the science behind your mind. Let's work together."
-        description="Manage depression, reduce anxiety, assess ADHD & improve sleep with help from a Psychiatrist or Psychologist."
-        btn_text="Get Help Today"
-        btn_link="http://google.com.vn"
-        phone="+65 69797886"/>
-    </a-card>
-
     <a-card :title="$t('TITLE.manage_section_01')" class="mb-4">
       <HomeInfo
         title="EXPERIENCED & QUALIFIED"

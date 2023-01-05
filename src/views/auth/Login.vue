@@ -32,15 +32,6 @@
                   :label="$t('AUTH.password')"/>
 
       <div class="d-flex align-items-center mb-3">
-        <!--Forgot password-->
-<!--        <router-link :to="{ name: 'forgot-password' }"-->
-<!--                     custom-->
-<!--                     v-slot="{ navigate }">-->
-<!--          <a @click="navigate"-->
-<!--             class="forgot-password"-->
-<!--             v-text="$t('AUTH.forgot_password')"/>-->
-<!--        </router-link>-->
-
         <!--Submit login-->
         <a-button type="primary"
                   html-type="submit"

@@ -1,15 +1,18 @@
 {
   "COMMON": {
     "logo": "Hệ thống quản lý",
-    "big_title": "Tiêu đề lớn:",
-    "title": "Tiêu đề:",
-    "description": "Miêu tả:",
-    "txt_button": "Nút:",
-    "link_button": "Đường dẫn:",
-    "phone": "Số điện thoại:"
+    "image": "Hình ảnh",
+    "big_title": "Tiêu đề lớn",
+    "title": "Tiêu đề",
+    "description": "Miêu tả",
+    "txt_button": "Nút",
+    "link_button": "Đường dẫn",
+    "phone": "Số điện thoại",
+    "select_file": "Chọn hình ảnh"
   },
   "NAVIGATION": {
     "home": "Quản lý trang chủ",
+    "story": "Câu chuyện của chúng tôi",
     "team": "Quản lý đội ngũ",
     "team_overview": "Tổng quan",
     "news": "Quản lý bài viết",
@@ -33,11 +36,23 @@
   "BUTTON": {
     "login": "Đăng nhập",
     "logout": "Đăng xuất",
-    "edit": "Chỉnh sửa"
+    "edit": "Chỉnh sửa",
+    "back": "Trở về",
+    "update": "Cập nhật"
   },
   "FIELD": {
     "email": "Địa chỉ email",
     "password": "Mật khẩu"
+  },
+  "TITLE": {
+    "manage_banner": "Quản lý banner",
+    "manage_section_01": "Quản lý bố cục 1",
+    "manage_section_02": "Quản lý bố cục 2",
+    "manage_section_03": "Quản lý bố cục 3",
+    "manage_section_04": "Quản lý bố cục 4",
+    "manage_section_05": "Quản lý bố cục 5",
+    "manage_section_06": "Quản lý bố cục 6",
+    "manage_section_07": "Quản lý bố cục 7"
   },
   "AUTH": {
     "login": "Quản lý hệ thống",
@@ -50,13 +65,10 @@
   },
   "HOME": {
     "title": "Trang chủ",
-    "title_manage_banner": "Quản lý banner",
-    "title_manage_section_01": "Quản lý bố cục 1",
-    "title_manage_section_02": "Quản lý bố cục 2",
-    "title_manage_section_03": "Quản lý bố cục 3",
-    "title_manage_section_04": "Quản lý bố cục 4",
-    "title_manage_section_05": "Quản lý bố cục 5",
-    "title_manage_section_06": "Quản lý bố cục 6",
-    "title_manage_section_07": "Quản lý bố cục 7"
+    "title_edit": "Chỉnh sửa trang chủ"
+  },
+  "STORY": {
+    "title": "Quản lý trang câu chuyện của chúng tôi",
+    "title_edit": "Chỉnh sửa câu chuyện của chúng tôi"
   }
 }

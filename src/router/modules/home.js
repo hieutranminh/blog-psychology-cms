@@ -22,9 +22,10 @@ export default [
         name: 'home.edit',
         component: () => import('@/views/home/Edit'),
         meta: {
-          title: 'HOME.title',
+          title: 'HOME.title_edit',
           breadcrumb: [
-            { title: 'HOME.title' }
+            { title: 'HOME.title', routeName: 'home' },
+            { title: 'HOME.title_edit' }
           ],
           scrollTop: true
         }

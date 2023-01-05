@@ -3,7 +3,7 @@
     v-if="NAVIGATIONS.length"
     v-model="collapsed"
     :trigger="null"
-    width="240">
+    width="260">
     <div
       class="logo"
       v-text="$t('COMMON.logo')"/>

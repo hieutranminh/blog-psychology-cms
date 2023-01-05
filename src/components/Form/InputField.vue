@@ -8,7 +8,7 @@
     <!-- Label -->
     <label
       v-if="label"
-      class="mb-2">
+      class="mb-1">
       {{ label }}
       <span
         v-if="rules.includes('required')"
@@ -73,7 +73,7 @@ export default {
   props: {
     vid: { type: String, default: '' },
     value: { type: [String, Number], default: '' },
-    field: { type: String, default: '' },
+    field: { type: [String], default: '' },
     label: { type: String, default: '' },
     rules: { type: String, default: '' },
     type: { type: String, default: 'text' },

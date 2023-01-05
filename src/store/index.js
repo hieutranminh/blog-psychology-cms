@@ -4,18 +4,16 @@ import Vuex from 'vuex'
 // MODULE
 import loader from './modules/loader'
 import auth from './modules/auth'
+import setting from './modules/setting'
 import admin from './modules/admin'
-import dashboard from './modules/dashboard'
 import news from './modules/news'
-import user from './modules/user'
 
 const modules = {
   loader,
   auth,
+  setting,
   admin,
-  dashboard,
-  news,
-  user
+  news
 }
 
 Vue.use(Vuex)

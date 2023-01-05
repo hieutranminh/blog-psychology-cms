@@ -7,28 +7,28 @@
     </a-col>
     <a-col :span="17">
       <div v-if="big_title" class="field mb-2">
-        <label v-text="$t('COMMON.big_title')" class="mb-0"/>
+        <label v-text="$t('COMMON.big_title')+':'" class="mb-0"/>
         <p v-text="big_title"/>
       </div>
       <div v-if="title" class="field mb-2">
-        <label v-text="$t('COMMON.title')" class="mb-0"/>
+        <label v-text="$t('COMMON.title')+':'" class="mb-0"/>
         <p v-text="title"/>
       </div>
       <div v-if="description" class="field mb-2">
-        <label v-text="$t('COMMON.description')" class="mb-0"/>
+        <label v-text="$t('COMMON.description')+':'" class="mb-0"/>
         <p v-text="description"/>
       </div>
       <div class="field mb-2">
         <div v-if="btn_text" class="mb-1">
-          <label v-text="$t('COMMON.txt_button')" class="mb-0 mr-1 font-weight-bold"/>
+          <label v-text="$t('COMMON.txt_button')+':'" class="mb-0 mr-1 font-weight-bold"/>
           <span class="btn-link" v-text="btn_text"/>
         </div>
         <div v-if="btn_link" class="mb-1">
-          <label v-text="$t('COMMON.link_button')" class="mb-0 mr-1 font-weight-bold"/>
+          <label v-text="$t('COMMON.link_button')+':'" class="mb-0 mr-1 font-weight-bold"/>
           <a href="#" style="word-break: break-all" v-text="btn_link"/>
         </div>
         <div v-if="phone">
-          <label v-text="$t('COMMON.phone')" class="mb-0 mr-1 font-weight-bold"/>
+          <label v-text="$t('COMMON.phone')+':'" class="mb-0 mr-1 font-weight-bold"/>
           <span v-text="phone"/>
         </div>
       </div>

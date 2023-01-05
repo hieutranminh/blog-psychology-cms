@@ -1,7 +1,7 @@
 import { ApiService } from './api.service'
 
-const BaseUrl = 'upload-image'
+const BaseUrl = 'files'
 
 export function uploadImage (params = {}) {
-  return ApiService.post(`${BaseUrl}`, params).then(resp => resp.data)
+  return ApiService.post(`${BaseUrl}/upload`, params).then(resp => resp.data)
 }

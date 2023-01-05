@@ -73,7 +73,7 @@ p {
       position: fixed;
       height: 100vh;
       overflow: auto;
-      width: 240px;
+      width: 260px;
     }
   }
   .ant-layout-sider-collapsed {
@@ -123,10 +123,8 @@ p .required{
   padding: 20px;
 }
 
-.text-center {
-  .ant-input {
-    text-align: center;
-  }
+.ant-input {
+  color: #000000!important;
 }
 .search {
   &.inactive {
@@ -214,10 +212,10 @@ p .required{
 }
 .ant-card {
   .ant-card-head {
-    background: #f7f7f7;
+    background: #d6d6d6;
     .ant-card-head-title {
       font-weight: 600;
-      color: #333333;
+      color: #000000;
     }
   }
 }

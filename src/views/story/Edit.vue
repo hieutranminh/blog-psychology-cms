@@ -25,53 +25,6 @@
         </a-button>
       </div>
 
-      <!-- FORM BANNER -->
-      <a-card :title="$t('TITLE.manage_banner')" class="mb-4">
-        <a-row :gutter="16">
-          <a-col :span="24">
-            <InputField v-model="form.home.banner.title"
-                        vid="title"
-                        rules="required|max:150"
-                        class="mb-2"
-                        :field="$t('COMMON.title')"
-                        :label="$t('COMMON.title')"/>
-
-            <TextAreaField v-model="form.home.banner.desc"
-                           vid="desc"
-                           rules="required|max:250"
-                           class="mb-2"
-                           :field="$t('COMMON.description')"
-                           :label="$t('COMMON.description')"/>
-
-            <a-row :gutter="16">
-              <a-col span="12">
-                <InputField v-model="form.home.banner.btn_text"
-                            vid="btn_text"
-                            rules="required|max:30"
-                            class="mb-2"
-                            :field="$t('COMMON.txt_button')"
-                            :label="$t('COMMON.txt_button')"/>
-              </a-col>
-              <a-col span="12">
-                <InputField v-model="form.home.banner.btn_link"
-                            vid="btn_link"
-                            rules="required"
-                            class="mb-2"
-                            :field="$t('COMMON.link_button')"
-                            :label="$t('COMMON.link_button')"/>
-              </a-col>
-            </a-row>
-
-            <InputField v-model="form.home.banner.phone"
-                        vid="phone"
-                        rules="numeric|max:11"
-                        class="mb-2"
-                        :field="$t('COMMON.phone')"
-                        :label="$t('COMMON.phone')"/>
-          </a-col>
-        </a-row>
-      </a-card>
-
       <!-- FORM SECTION 01 -->
       <a-card :title="$t('TITLE.manage_section_01')" class="mb-4">
         <a-row :gutter="16">
@@ -256,7 +209,7 @@ export default {
     },
 
     handleSubmit () {
-      this.updateSetting([this.form]).then(result => {
+      this.updateSetting(this.form).then(result => {
         if (result) {
           this.$router.push({ name: 'home' })
         } else {

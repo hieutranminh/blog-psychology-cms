@@ -8,7 +8,7 @@
     <!-- Label -->
     <label
       v-if="label"
-      class="mb-2">
+      class="mb-1">
       {{ label }}
       <span
         v-if="rules.includes('required')"

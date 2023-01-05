@@ -9,6 +9,13 @@ export const NAVIGATIONS = [
     role: [PERMISSION.FULL_ROLE]
   },
   {
+    id: 'story',
+    title: 'NAVIGATION.story',
+    icon: 'bulb',
+    routeName: 'story',
+    role: [PERMISSION.FULL_ROLE]
+  },
+  {
     id: 'team',
     title: 'NAVIGATION.team',
     icon: 'pic-left',
@@ -27,13 +34,6 @@ export const NAVIGATIONS = [
     title: 'NAVIGATION.news',
     icon: 'pic-left',
     routeName: 'news',
-    role: [PERMISSION.FULL_ROLE]
-  },
-  {
-    id: 'user',
-    title: 'NAVIGATION.user',
-    icon: 'team',
-    routeName: 'user',
     role: [PERMISSION.FULL_ROLE]
   },
   {

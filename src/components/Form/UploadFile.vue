@@ -9,7 +9,7 @@
     <!--Label-->
     <label
       v-if="label"
-      class="label">
+      class="label mb-1">
       {{ label }}
 
       <span
@@ -58,6 +58,8 @@
 </template>
 
 <script>
+import { uploadImage } from '@/services/uploads.service'
+
 export default {
   name: 'UploadFile',
 
@@ -84,7 +86,7 @@ export default {
 
     accept: {
       type: String,
-      default: ''
+      default: 'image/*'
     },
 
     deleteButton: {
@@ -115,18 +117,22 @@ export default {
           this.previewUrl = URL.createObjectURL(file)
         }
 
-        // const formData = new FormData()
-        // formData.append('file', file)
+        const formData = new FormData()
+        formData.append('files[]', file)
+        formData.append('type', 'thumbnail')
 
         // Call API Upload
-        // formData file => binary
-
-        // Emit data outside ( maybe include fileId & fileUrl )
-        this.$emit('onFileSelect', file)
-        this.$emit('onPreview', this.previewUrl)
+        await uploadImage(formData).then(res => {
+          if (res.status === 200) {
+            // Emit data outside ( maybe include fileId & fileUrl )
+            this.$emit('onFileSelect', res.data[0].url)
+          }
+        }).catch(err => {
+          console.log('err', err.response.data)
+        })
       } else {
         this.previewUrl = null
-        this.thumbnail = null
+        this.$emit('resetThumbnail')
       }
     }
   }
@@ -134,13 +140,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  label {
+    margin-bottom: 4px;
+    font-weight: bold;
+    color: #222222;
+  }
   .upload-image {
     .preview {
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 150px;
+      border-radius: 4px;
+      aspect-ratio: 16/9;
+      overflow: hidden;
       border-radius: 4px;
       img {
         width: 100%;
@@ -151,9 +164,11 @@ export default {
       }
     }
     .btn-select-file {
-      padding: 2px 20px;
+      padding: 4px 20px;
       background: #f3f3f3;
       border: 1px solid;
+      color: #222222;
+      font-weight: bold;
       &:hover {
         background: #e6e6e6;
       }
