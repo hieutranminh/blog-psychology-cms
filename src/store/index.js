@@ -6,6 +6,7 @@ import loader from './modules/loader'
 import auth from './modules/auth'
 import setting from './modules/setting'
 import postTeam from './modules/posts-team'
+import postKnowledge from './modules/posts-knowledge'
 import admin from './modules/admin'
 import news from './modules/news'
 
@@ -14,6 +15,7 @@ const modules = {
   auth,
   setting,
   postTeam,
+  postKnowledge,
   admin,
   news
 }

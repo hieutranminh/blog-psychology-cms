@@ -186,3 +186,13 @@ p .required{
     }
   }
 }
+.rectangle-image {
+  .upload-image {
+    .preview {
+      width: 300px;
+    }
+  }
+}
+.ant-table-thead > tr > th .ant-table-header-column {
+  white-space: pre;
+}

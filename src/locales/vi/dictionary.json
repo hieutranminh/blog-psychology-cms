@@ -25,13 +25,14 @@
     "enabled": "Hiển thị",
     "disabled": "Ẩn",
     "line_content": "Nội dung dòng",
-    "line": "Dòng"
+    "line": "Dòng",
+    "type_post": "Loại bài viết"
   },
   "NAVIGATION": {
     "home": "Quản lý trang chủ",
     "story": "Câu chuyện của chúng tôi",
     "team": "Quản lý đội ngũ",
-    "team_overview": "Tổng quan",
+    "knowledge": "Quản lý kiến thức y khoa",
     "news": "Quản lý bài viết",
     "user": "Quản lý người dùng",
     "admin": "Quản trị viên"
@@ -105,5 +106,10 @@
     "title": "Quản lý đội ngũ",
     "title_create": "Tạo mới thành viên đội ngũ",
     "title_edit": "Chỉnh sửa thông tin đội ngũ"
+  },
+  "KNOWLEDGE": {
+    "title": "Quản lý kiến thức y khoa",
+    "title_create": "Tạo mới bài viết",
+    "title_edit": "Chỉnh sửa bài viết"
   }
 }

@@ -18,8 +18,15 @@ export const NAVIGATIONS = [
   {
     id: 'team',
     title: 'NAVIGATION.team',
-    icon: 'pic-left',
+    icon: 'team',
     routeName: 'team',
+    role: [PERMISSION.FULL_ROLE]
+  },
+  {
+    id: 'knowledge',
+    title: 'NAVIGATION.knowledge',
+    icon: 'book',
+    routeName: 'knowledge',
     role: [PERMISSION.FULL_ROLE]
   },
   {
