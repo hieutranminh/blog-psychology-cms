@@ -11,62 +11,52 @@
         </a-button>
       </router-link>
     </div>
+
     <a-card :title="$t('TITLE.manage_section_01')" class="mb-4">
       <HomeInfo
-        title="EXPERIENCED & QUALIFIED"
-        description="Our Medical Lead is Dr Victor Kwok. A Stanford-trained Psychiatrist & medical doctor with over 16 years of experience, he was founding Chief of Psychiatry at a general hospital in Singapore."
-        btn_text="See our credentials "
-        btn_link="http://google.com.vn"/>
+          :image="dataWeStory.section_01.thumbnail"
+          :title="dataWeStory.section_01.title"
+          :description="dataWeStory.section_01.desc"
+          :btn_text="dataWeStory.section_01.btn_text"
+          :btn_link="dataWeStory.section_01.btn_link"/>
     </a-card>
 
     <a-card :title="$t('TITLE.manage_section_02')" class="mb-4">
       <HomeInfo
-        title="PRIVACY"
-        description="We know that privacy is important to you. It’s also part of our core values. Be assured that all psychiatric information stays at Private Space, unlinked to any public information system."
-        btn_text="OUR PRIVACY POLICY"
-        btn_link="http://google.com.vn"/>
+          :image="dataWeStory.section_02.thumbnail"
+          :title="dataWeStory.section_02.title"
+          :description="dataWeStory.section_02.desc"
+          :btn_text="dataWeStory.section_02.btn_text"
+          :btn_link="dataWeStory.section_02.btn_link"/>
     </a-card>
 
-    <a-card :title="$t('TITLE.manage_section_03')" class="mb-4">
-      <a-row :gutter="16">
-        <a-col :span="8">
-          <a-card>
-            <img
-              slot="cover"
-              alt="example"
-              src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-            />
-            <a-card-meta title="Card title" description="This is the description"/>
-          </a-card>
-        </a-col>
-        <a-col :span="8">
-          <a-card>
-            <img
-              slot="cover"
-              alt="example"
-              src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-            />
-            <a-card-meta title="Card title" description="This is the description"/>
-          </a-card>
-        </a-col>
-        <a-col :span="8">
-          <a-card>
-            <img
-              slot="cover"
-              alt="example"
-              src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-            />
-            <a-card-meta title="Card title" description="This is the description"/>
-          </a-card>
-        </a-col>
-      </a-row>
+    <a-card :title="$t('TITLE.manage_section_02')" class="mb-4">
+      <HomeInfo
+          :image="dataWeStory.section_03.thumbnail"
+          :title="dataWeStory.section_03.title"
+          :description="dataWeStory.section_03.desc"
+          :btn_text="dataWeStory.section_03.btn_text"
+          :btn_link="dataWeStory.section_03.btn_link"/>
     </a-card>
+
+    <div class="text-right mb-3">
+      <router-link
+          :to="{name: 'story.edit'}">
+        <a-button
+            type="primary"
+            class="font-weight-bold"
+            icon="edit">
+          {{$t('BUTTON.edit')}}
+        </a-button>
+      </router-link>
+    </div>
   </div>
 </template>
 
 <script>
 // Store
 import store from '@/store'
+import { mapGetters } from 'vuex'
 // Component
 import HomeInfo from '@/views/shared/HomeInfo'
 
@@ -83,12 +73,13 @@ export default {
   },
 
   beforeRouteEnter (to, from, next) {
-    const params = {
-      'filters[key]': 'global_links'
-    }
-    store.dispatch('setting/getSetting', params).then(_ => {
+    store.dispatch('setting/getSetting').then(_ => {
       next()
     })
+  },
+
+  computed: {
+    ...mapGetters('setting', ['dataWeStory'])
   }
 }
 </script>

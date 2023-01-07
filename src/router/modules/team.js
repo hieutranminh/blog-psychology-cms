@@ -1,5 +1,4 @@
 import Resource from '@/components/Resource'
-import { PERMISSION } from '@/enum/permission'
 
 export default [
   {
@@ -7,18 +6,41 @@ export default [
     component: Resource,
     children: [
       {
-        path: '/team/overview',
-        name: 'team.overview',
-        component: () => import('@/views/team/Overview.vue'),
+        path: '',
+        name: 'team',
+        component: () => import('@/views/team/Index.vue'),
         meta: {
-          title: 'team_overview',
+          title: 'TEAM.title',
           breadcrumb: [
-            { title: 'team_overview' }
+            { title: 'TEAM.title' }
           ],
-          scrollTop: true,
-          permissions: [
-            PERMISSION.FULL_ROLE
-          ]
+          scrollTop: true
+        }
+      },
+      {
+        path: '/team/create',
+        name: 'team.create',
+        component: () => import('@/views/team/Create'),
+        meta: {
+          title: 'TEAM.title_create',
+          breadcrumb: [
+            { title: 'TEAM.title', routeName: 'team' },
+            { title: 'TEAM.title_create' }
+          ],
+          scrollTop: true
+        }
+      },
+      {
+        path: '/team/edit/:id',
+        name: 'team.edit',
+        component: () => import('@/views/team/Edit'),
+        meta: {
+          title: 'TEAM.title_edit',
+          breadcrumb: [
+            { title: 'TEAM.title', routeName: 'team' },
+            { title: 'TEAM.title_edit' }
+          ],
+          scrollTop: true
         }
       }
     ]

@@ -29,7 +29,7 @@ const routes = [
   // Main
   {
     path: '/',
-    redirect: 'dashboard',
+    redirect: 'home',
     name: 'Index',
     component: () => import('@/views/Index.vue'),
     children: [

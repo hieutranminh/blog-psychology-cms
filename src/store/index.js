@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 import loader from './modules/loader'
 import auth from './modules/auth'
 import setting from './modules/setting'
+import postTeam from './modules/posts-team'
 import admin from './modules/admin'
 import news from './modules/news'
 
@@ -12,6 +13,7 @@ const modules = {
   loader,
   auth,
   setting,
+  postTeam,
   admin,
   news
 }

@@ -2,9 +2,9 @@ import Vue from 'vue'
 import moment from 'moment'
 import i18n from '@/plugins/i18n'
 
-Vue.filter('formatDate', function (value, format = 'YYYY/MM/DD HH:mm') {
+Vue.filter('formatDate', function (value, format = 'DD/MM/YYYY HH:mm') {
   if (value) {
-    return moment(value).locale('ja').format(format)
+    return moment(value).format(format)
   }
   return ''
 })

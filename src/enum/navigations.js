@@ -19,15 +19,8 @@ export const NAVIGATIONS = [
     id: 'team',
     title: 'NAVIGATION.team',
     icon: 'pic-left',
-    role: [PERMISSION.FULL_ROLE],
-    dropdownItems: [
-      {
-        id: 'team_overview',
-        title: 'NAVIGATION.team_overview',
-        routeName: 'team.overview',
-        role: [PERMISSION.FULL_ROLE]
-      }
-    ]
+    routeName: 'team',
+    role: [PERMISSION.FULL_ROLE]
   },
   {
     id: 'news',

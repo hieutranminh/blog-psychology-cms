@@ -11,65 +11,45 @@
         </a-button>
       </router-link>
     </div>
+
     <a-card :title="$t('TITLE.manage_banner')" class="mb-4">
       <HomeInfo
-        title="We know the science behind your mind. Let's work together."
-        description="Manage depression, reduce anxiety, assess ADHD & improve sleep with help from a Psychiatrist or Psychologist."
-        btn_text="Get Help Today"
-        btn_link="http://google.com.vn"
-        phone="+65 69797886"/>
+          :title="dataHome.banner.title"
+          :description="dataHome.banner.desc"
+          :btn_text="dataHome.banner.btn_text"
+          :btn_link="dataHome.banner.btn_link"
+          :phone="dataHome.banner.phone"/>
     </a-card>
 
     <a-card :title="$t('TITLE.manage_section_01')" class="mb-4">
       <HomeInfo
-        title="EXPERIENCED & QUALIFIED"
-        description="Our Medical Lead is Dr Victor Kwok. A Stanford-trained Psychiatrist & medical doctor with over 16 years of experience, he was founding Chief of Psychiatry at a general hospital in Singapore."
-        btn_text="See our credentials "
-        btn_link="http://google.com.vn"/>
+          :image="dataHome.section_01.thumbnail"
+          :title="dataHome.section_01.title"
+          :description="dataHome.section_01.desc"
+          :btn_text="dataHome.section_01.btn_text"
+          :btn_link="dataHome.section_01.btn_link"/>
     </a-card>
 
     <a-card :title="$t('TITLE.manage_section_02')" class="mb-4">
       <HomeInfo
-        title="PRIVACY"
-        description="We know that privacy is important to you. It’s also part of our core values. Be assured that all psychiatric information stays at Private Space, unlinked to any public information system."
-        btn_text="OUR PRIVACY POLICY"
-        btn_link="http://google.com.vn"/>
+          :image="dataHome.section_02.thumbnail"
+          :title="dataHome.section_02.title"
+          :description="dataHome.section_02.desc"
+          :btn_text="dataHome.section_02.btn_text"
+          :btn_link="dataHome.section_02.btn_link"/>
     </a-card>
 
-    <a-card :title="$t('TITLE.manage_section_03')" class="mb-4">
-      <a-row :gutter="16">
-        <a-col :span="8">
-          <a-card>
-            <img
-              slot="cover"
-              alt="example"
-              src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-            />
-            <a-card-meta title="Card title" description="This is the description"/>
-          </a-card>
-        </a-col>
-        <a-col :span="8">
-          <a-card>
-            <img
-              slot="cover"
-              alt="example"
-              src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-            />
-            <a-card-meta title="Card title" description="This is the description"/>
-          </a-card>
-        </a-col>
-        <a-col :span="8">
-          <a-card>
-            <img
-              slot="cover"
-              alt="example"
-              src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-            />
-            <a-card-meta title="Card title" description="This is the description"/>
-          </a-card>
-        </a-col>
-      </a-row>
-    </a-card>
+    <div class="text-right mb-3">
+      <router-link
+          :to="{name: 'home.edit'}">
+        <a-button
+            type="primary"
+            class="font-weight-bold"
+            icon="edit">
+          {{$t('BUTTON.edit')}}
+        </a-button>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -78,6 +58,7 @@
 import store from '@/store'
 // Component
 import HomeInfo from '@/views/shared/HomeInfo'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Index',
@@ -86,18 +67,14 @@ export default {
     HomeInfo
   },
 
-  data () {
-    return {
-    }
-  },
-
   beforeRouteEnter (to, from, next) {
-    const params = {
-      'filters[key]': 'global_links'
-    }
-    store.dispatch('setting/getSetting', params).then(_ => {
+    store.dispatch('setting/getSetting').then(_ => {
       next()
     })
+  },
+
+  computed: {
+    ...mapGetters('setting', ['dataHome'])
   }
 }
 </script>

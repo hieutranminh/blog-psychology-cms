@@ -29,24 +29,24 @@
       <a-card :title="$t('TITLE.manage_section_01')" class="mb-4">
         <a-row :gutter="16">
           <a-col :span="12">
-            <UploadFile :rules="form.home.section_01.thumbnail ? '' : 'required' + '|image'"
-                        :thumbnail="form.home.section_01.thumbnail"
+            <UploadFile :rules="form.value.section_01.thumbnail ? '' : 'required' + '|image'"
+                        :thumbnail="form.value.section_01.thumbnail"
                         :field="$t('COMMON.image')"
                         :label="$t('COMMON.image')"
                         vid="file_01"
-                        @onFileSelect="form.home.section_01.thumbnail = $event"
-                        @resetThumbnail="form.home.section_01.thumbnail = ''"/>
+                        @onFileSelect="form.value.section_01.thumbnail = $event"
+                        @resetThumbnail="form.value.section_01.thumbnail = ''"/>
           </a-col>
 
           <a-col :span="12">
-            <InputField v-model="form.home.section_01.title"
+            <InputField v-model="form.value.section_01.title"
                         vid="title_01"
                         rules="required|max:150"
                         class="mb-2"
                         :field="$t('COMMON.title')"
                         :label="$t('COMMON.title')"/>
 
-            <TextAreaField v-model="form.home.section_01.desc"
+            <TextAreaField v-model="form.value.section_01.desc"
                            vid="desc_01"
                            rules="required|max:250"
                            class="mb-2"
@@ -55,7 +55,7 @@
 
             <a-row :gutter="16">
               <a-col span="12">
-                <InputField v-model="form.home.section_01.btn_text"
+                <InputField v-model="form.value.section_01.btn_text"
                             vid="btn_text_01"
                             rules="required|max:30"
                             class="mb-2"
@@ -63,7 +63,7 @@
                             :label="$t('COMMON.txt_button')"/>
               </a-col>
               <a-col span="12">
-                <InputField v-model="form.home.section_01.btn_link"
+                <InputField v-model="form.value.section_01.btn_link"
                             vid="btn_link_01"
                             rules="required"
                             class="mb-2"
@@ -79,24 +79,24 @@
       <a-card :title="$t('TITLE.manage_section_02')" class="mb-4">
         <a-row :gutter="16">
           <a-col :span="12">
-            <UploadFile :rules="form.home.section_02.thumbnail ? '' : 'required' + '|image'"
-                        :thumbnail="form.file"
+            <UploadFile :rules="form.value.section_02.thumbnail ? '' : 'required' + '|image'"
+                        :thumbnail="form.value.section_02.thumbnail"
                         :field="$t('COMMON.image')"
                         :label="$t('COMMON.image')"
                         vid="file_02"
-                        @onFileSelect="form.home.section_02.thumbnail = $event"
-                        @resetThumbnail="form.home.section_02.thumbnail = ''"/>
+                        @onFileSelect="form.value.section_02.thumbnail = $event"
+                        @resetThumbnail="form.value.section_02.thumbnail = ''"/>
           </a-col>
 
           <a-col :span="12">
-            <InputField v-model="form.home.section_02.title"
+            <InputField v-model="form.value.section_02.title"
                         vid="title_02"
                         rules="required|max:150"
                         class="mb-2"
                         :field="$t('COMMON.title')"
                         :label="$t('COMMON.title')"/>
 
-            <TextAreaField v-model="form.home.section_02.desc"
+            <TextAreaField v-model="form.value.section_02.desc"
                            vid="desc_02"
                            rules="required|max:250"
                            class="mb-2"
@@ -105,7 +105,7 @@
 
             <a-row :gutter="16">
               <a-col span="12">
-                <InputField v-model="form.home.section_02.btn_text"
+                <InputField v-model="form.value.section_02.btn_text"
                             vid="btn_text_02"
                             rules="required|max:30"
                             class="mb-2"
@@ -113,8 +113,58 @@
                             :label="$t('COMMON.txt_button')"/>
               </a-col>
               <a-col span="12">
-                <InputField v-model="form.home.section_02.btn_link"
+                <InputField v-model="form.value.section_02.btn_link"
                             vid="btn_link_02"
+                            rules="required"
+                            class="mb-2"
+                            :field="$t('COMMON.link_button')"
+                            :label="$t('COMMON.link_button')"/>
+              </a-col>
+            </a-row>
+          </a-col>
+        </a-row>
+      </a-card>
+
+      <!-- FORM SECTION 03 -->
+      <a-card :title="$t('TITLE.manage_section_03')" class="mb-4">
+        <a-row :gutter="16">
+          <a-col :span="12">
+            <UploadFile :rules="form.value.section_03.thumbnail ? '' : 'required' + '|image'"
+                        :thumbnail="form.value.section_03.thumbnail"
+                        :field="$t('COMMON.image')"
+                        :label="$t('COMMON.image')"
+                        vid="file_03"
+                        @onFileSelect="form.value.section_03.thumbnail = $event"
+                        @resetThumbnail="form.value.section_03.thumbnail = ''"/>
+          </a-col>
+
+          <a-col :span="12">
+            <InputField v-model="form.value.section_03.title"
+                        vid="title_03"
+                        rules="required|max:150"
+                        class="mb-2"
+                        :field="$t('COMMON.title')"
+                        :label="$t('COMMON.title')"/>
+
+            <TextAreaField v-model="form.value.section_03.desc"
+                           vid="desc_03"
+                           rules="required|max:250"
+                           class="mb-2"
+                           :field="$t('COMMON.description')"
+                           :label="$t('COMMON.description')"/>
+
+            <a-row :gutter="16">
+              <a-col span="12">
+                <InputField v-model="form.value.section_03.btn_text"
+                            vid="btn_text_03"
+                            rules="required|max:30"
+                            class="mb-2"
+                            :field="$t('COMMON.txt_button')"
+                            :label="$t('COMMON.txt_button')"/>
+              </a-col>
+              <a-col span="12">
+                <InputField v-model="form.value.section_03.btn_link"
+                            vid="btn_link_03"
                             rules="required"
                             class="mb-2"
                             :field="$t('COMMON.link_button')"
@@ -150,7 +200,10 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+// Store
+import store from '@/store'
+import { mapActions, mapGetters } from 'vuex'
+// Components
 import InputField from '@/components/Form/InputField'
 import TextAreaField from '@/components/Form/TextAreaField'
 import UploadFile from '@/components/Form/UploadFile'
@@ -170,14 +223,8 @@ export default {
   data () {
     return {
       form: {
-        home: {
-          banner: {
-            title: '',
-            desc: '',
-            btn_text: '',
-            btn_link: '',
-            phone: ''
-          },
+        key: 'we_story',
+        value: {
           section_01: {
             thumbnail: '',
             title: '',
@@ -191,11 +238,37 @@ export default {
             desc: '',
             btn_text: '',
             btn_link: ''
+          },
+          section_03: {
+            thumbnail: '',
+            title: '',
+            desc: '',
+            btn_text: '',
+            btn_link: ''
           }
         }
       },
       isSubmit: false
     }
+  },
+
+  beforeRouteEnter (to, from, next) {
+    store.dispatch('setting/getSetting').then(_ => {
+      next()
+    })
+  },
+
+  created () {
+    if (this.dataWeStory) {
+      this.form.value = {
+        ...this.form.value,
+        ...JSON.parse(JSON.stringify(this.dataWeStory))
+      }
+    }
+  },
+
+  computed: {
+    ...mapGetters('setting', ['dataWeStory'])
   },
 
   methods: {
@@ -209,9 +282,9 @@ export default {
     },
 
     handleSubmit () {
-      this.updateSetting(this.form).then(result => {
+      this.updateSetting([this.form]).then(result => {
         if (result) {
-          this.$router.push({ name: 'home' })
+          this.$router.push({ name: 'story' })
         } else {
           this.onError(this.$t('NOTIFICATION.title_fail'), this.$t('NOTIFICATION.title_fail'))
         }

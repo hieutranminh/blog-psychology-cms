@@ -139,30 +139,7 @@ p .required{
 #app .ant-pagination-total-text {
   color: #000000;
 }
-.banner-upload {
-  width: 1130px!important;
-  .upload-image {
-    display: flex;
-    flex-direction: column-reverse;
-    .preview {
-      width: 100%;
-      height: 388px!important;
-      margin-top: 20px;
-    }
-  }
-}
-.square-upload {
-  .upload-image {
-    display: flex;
-    flex-direction: column-reverse;
-    .preview {
-      margin-top: 20px;
-    }
-  }
-}
-.sortable-chosen {
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-}
+
 .field {
   & > label {
     line-height: 1.3;
@@ -183,33 +160,6 @@ p .required{
   }
 }
 
-.sort-empty {
-  position: relative;
-  z-index: 1;
-  margin-top: -1px;
-  padding: 16px 16px;
-  color: rgba(0, 0, 0, 0.25);
-  font-size: 14px;
-  text-align: center;
-  background: #fff;
-  border-top: 1px solid #e8e8e8;
-  border-radius: 0 0 4px 4px;
-}
-
-.feature-upload {
-  .upload-image {
-    .preview {
-      width: 410px;
-      height: 306px!important;
-    }
-  }
-}
-
-.tox {
-  .tox-statusbar {
-    display: none!important;
-  }
-}
 .ant-card {
   .ant-card-head {
     background: #d6d6d6;
@@ -219,5 +169,20 @@ p .required{
     }
   }
 }
-
-
+.ant-table-thead > tr > th{
+  color: #000000!important;
+  font-weight: bold!important;
+}
+.ant-table-tbody > tr > td {
+  color: #000000!important;
+}
+.square-image {
+  .upload-image {
+    .preview {
+      aspect-ratio: 1!important;
+      border-radius: 50%!important;
+      width: 250px;
+      margin: auto;
+    }
+  }
+}

@@ -6,7 +6,8 @@ export const axiosConfig = {
   baseURL: process.env.VUE_APP_ROOT_API,
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'App-Locale': 'vi'
   },
   timeout: 30000 // request timeout
 }

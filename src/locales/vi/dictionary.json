@@ -5,10 +5,23 @@
     "big_title": "Tiêu đề lớn",
     "title": "Tiêu đề",
     "description": "Miêu tả",
+    "content": "Nội dung",
     "txt_button": "Nút",
     "link_button": "Đường dẫn",
     "phone": "Số điện thoại",
-    "select_file": "Chọn hình ảnh"
+    "select_file": "Chọn hình ảnh",
+    "empty_data": "Chưa có dữ liệu nào",
+    "number_of_search": "{from}-{to} của tổng {total} mục",
+    "position": "Vị trí",
+    "date": "Ngày",
+    "created_at": "Ngày tạo",
+    "updated_at": "Ngày cập nhật",
+    "action": "Thao tác",
+    "name": "Họ & Tên",
+    "name_category": "Tên danh mục",
+    "status": "Trạng thái",
+    "status_enabled": "Đang hiển thị",
+    "status_disabled": "Đang ẩn"
   },
   "NAVIGATION": {
     "home": "Quản lý trang chủ",
@@ -31,14 +44,18 @@
     "msg_update_success": "Cập nhật thành công",
     "msg_update_fail": "Cập nhật thất bại",
     "msg_delete_success": "Xoá thành công",
-    "msg_delete_fail": "Xoá thất bại"
+    "msg_delete_fail": "Xoá thất bại",
+    "msg_delete_confirm": "Bạn có chắc chắn muốn xoá ?"
   },
   "BUTTON": {
     "login": "Đăng nhập",
     "logout": "Đăng xuất",
+    "create": "Tạo mới",
     "edit": "Chỉnh sửa",
     "back": "Trở về",
-    "update": "Cập nhật"
+    "update": "Cập nhật",
+    "add": "Thêm mới",
+    "delete": "Xoá bỏ"
   },
   "FIELD": {
     "email": "Địa chỉ email",
@@ -52,7 +69,15 @@
     "manage_section_04": "Quản lý bố cục 4",
     "manage_section_05": "Quản lý bố cục 5",
     "manage_section_06": "Quản lý bố cục 6",
-    "manage_section_07": "Quản lý bố cục 7"
+    "manage_section_07": "Quản lý bố cục 7",
+    "manage_information": "Thông in chung",
+    "manage_category_01": "Danh mục 1",
+    "manage_category_02": "Danh mục 2",
+    "manage_category_03": "Danh mục 3",
+    "manage_category_04": "Danh mục 4",
+    "manage_category_05": "Danh mục 5",
+    "manage_category_06": "Danh mục 6",
+    "manage_category_07": "Danh mục 7"
   },
   "AUTH": {
     "login": "Quản lý hệ thống",
@@ -70,5 +95,10 @@
   "STORY": {
     "title": "Quản lý trang câu chuyện của chúng tôi",
     "title_edit": "Chỉnh sửa câu chuyện của chúng tôi"
+  },
+  "TEAM": {
+    "title": "Quản lý đội ngũ",
+    "title_create": "Tạo mới thành viên đội ngũ",
+    "title_edit": "Chỉnh sửa thông tin đội ngũ"
   }
 }

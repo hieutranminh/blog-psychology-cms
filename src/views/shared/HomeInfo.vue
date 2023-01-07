@@ -1,8 +1,8 @@
 <template>
   <a-row :gutter="16">
-    <a-col :span="7">
+    <a-col v-if="image" :span="7">
       <div class="images">
-        <img src="https://picsum.photos/500/350/?blur" alt="">
+        <img :src="image" alt="pic" style="border-radius: 4px">
       </div>
     </a-col>
     <a-col :span="17">
@@ -25,7 +25,7 @@
         </div>
         <div v-if="btn_link" class="mb-1">
           <label v-text="$t('COMMON.link_button')+':'" class="mb-0 mr-1 font-weight-bold"/>
-          <a href="#" style="word-break: break-all" v-text="btn_link"/>
+          <a :href="btn_link" style="word-break: break-all" v-text="btn_link"/>
         </div>
         <div v-if="phone">
           <label v-text="$t('COMMON.phone')+':'" class="mb-0 mr-1 font-weight-bold"/>

@@ -8,7 +8,10 @@ const initialState = {
 }
 export const state = { ...initialState }
 
-const getters = {}
+const getters = {
+  dataHome: state => (state.setting && state.setting.home) || '',
+  dataWeStory: state => (state.setting && state.setting.we_story) || ''
+}
 
 const mutations = {
   SET_SETTING (state, payload) {
