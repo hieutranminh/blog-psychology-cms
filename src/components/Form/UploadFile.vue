@@ -125,7 +125,7 @@ export default {
         await uploadImage(formData).then(res => {
           if (res.status === 200) {
             // Emit data outside ( maybe include fileId & fileUrl )
-            this.$emit('onFileSelect', res.data[0].url)
+            this.$emit('onFileSelect', res.data[0])
           }
         }).catch(err => {
           console.log('err', err.response.data)

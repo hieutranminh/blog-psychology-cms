@@ -31,7 +31,10 @@
       <!--image-->
       <template slot="image"
                 slot-scope="record">
-        <img :src="record.images[0].url | imageEmpty" alt="pic" style="border-radius: 50%;">
+        <img :src="record.images[0].url | imageEmpty"
+             alt="pic"
+             loading="lazy"
+             style="border-radius: 50%; aspect-ratio: 1;">
       </template>
 
       <!--date-->
@@ -71,7 +74,7 @@
                       :ok-text="$t('BUTTON.delete')"
                       :cancel-text="$t('BUTTON.back')"
                       placement="topLeft"
-                      @confirm="handleDelete">
+                      @confirm="deleteRecord(record.id)">
           <a-button type="danger"
                     size="small"
                     icon="delete"/>
@@ -108,17 +111,20 @@ import store from '@/store'
 import { mapActions, mapState } from 'vuex'
 // Components
 import Pagination from '@/components/Pagination'
+import FormMixin from '@/mixins/form.mixin'
 
 export default {
   name: 'Index',
 
   components: { Pagination },
 
+  mixins: [FormMixin],
+
   data () {
     return {
       params: {
         page: 1,
-        perPage: 15,
+        perPage: 10,
         'filters[type]': 'team'
       }
     }
@@ -127,7 +133,7 @@ export default {
   beforeRouteEnter (to, from, next) {
     const params = {
       page: 1,
-      perPage: 15,
+      perPage: 10,
       'filters[type]': 'team'
     }
     store.dispatch('postTeam/getList', params).then(_ => next())
@@ -175,7 +181,7 @@ export default {
 
   methods: {
     // Action
-    ...mapActions('postTeam', ['getList']),
+    ...mapActions('postTeam', ['getList', 'removeTeam']),
 
     changePage (num) {
       this.params = {
@@ -185,13 +191,15 @@ export default {
       this.fetchList(this.params)
     },
 
-    handleDelete () {
-      // this.removeBanner(this.detail.id).then(result => {
-      //   if (result) {
-      //     this.onSuccess(this.$t('completion'), this.$t('delete_message_successfully'))
-      //     this.$router.push({ name: 'banner' })
-      //   }
-      // })
+    deleteRecord (id) {
+      this.removeTeam(id).then(result => {
+        if (result) {
+          this.onSuccess(this.$t('NOTIFICATION.title_completion'), this.$t('NOTIFICATION.msg_delete_success'))
+          this.fetchList(this.params)
+        } else {
+          this.onSuccess(this.$t('NOTIFICATION.title_fail'), this.$t('NOTIFICATION.msg_delete_fail'))
+        }
+      })
     },
 
     // FETCH

@@ -21,7 +21,11 @@
     "name_category": "Tên danh mục",
     "status": "Trạng thái",
     "status_enabled": "Đang hiển thị",
-    "status_disabled": "Đang ẩn"
+    "status_disabled": "Đang ẩn",
+    "enabled": "Hiển thị",
+    "disabled": "Ẩn",
+    "line_content": "Nội dung dòng",
+    "line": "Dòng"
   },
   "NAVIGATION": {
     "home": "Quản lý trang chủ",
@@ -35,6 +39,7 @@
   "NOTIFICATION": {
     "title_completion": "Thành công",
     "title_fail": "Thất bại",
+    "msg_fail": "Thao tác thất bại",
     "msg_login_success": "Đăng nhập thành công",
     "msg_login_fail": "Đăng nhập thất bại",
     "msg_logout_success": "Đăng xuất thành công",

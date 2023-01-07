@@ -2,7 +2,7 @@
   <a-row :gutter="16">
     <a-col v-if="image" :span="7">
       <div class="images">
-        <img :src="image" alt="pic" style="border-radius: 4px">
+        <img :src="image" loading="lazy" alt="pic" style="border-radius: 4px">
       </div>
     </a-col>
     <a-col :span="17">

@@ -81,7 +81,7 @@
                         :field="$t('COMMON.image')"
                         :label="$t('COMMON.image')"
                         vid="file_01"
-                        @onFileSelect="form.value.section_01.thumbnail = $event"
+                        @onFileSelect="form.value.section_01.thumbnail = $event.url"
                         @resetThumbnail="form.value.section_01.thumbnail = ''"/>
           </a-col>
 
@@ -131,7 +131,7 @@
                         :field="$t('COMMON.image')"
                         :label="$t('COMMON.image')"
                         vid="file_02"
-                        @onFileSelect="form.value.section_02.thumbnail = $event"
+                        @onFileSelect="form.value.section_02.thumbnail = $event.url"
                         @resetThumbnail="form.value.section_02.thumbnail = ''"/>
           </a-col>
 
