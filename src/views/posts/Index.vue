@@ -1,9 +1,14 @@
 <template>
-  <div class="container">
+  <div class="posts">
+    <div class="container mb-3">
+      <Search @filter-changed="onFilterChange($event)"/>
+    </div>
+
+    <div class="container">
     <!-- ACTIONS -->
     <div class="text-right mb-3">
       <router-link
-          :to="{name: 'knowledge.create'}">
+          :to="{name: 'posts.create'}">
         <a-button
             type="primary"
             class="font-weight-bold"
@@ -53,18 +58,22 @@
       <!--status-->
       <template slot="status"
                 slot-scope="record">
-        <a-tag color="orange" class="font-weight-bold mr-0 mb-2">
-          {{ record.categories[0].title }}
-        </a-tag>
-        <a-tag :color="record.is_published ? '#87d068' : '#BBBBBB'" class="font-weight-bold mr-0">
-          {{ record.is_published ? $t('COMMON.status_enabled') : $t('COMMON.status_disabled')}}
-        </a-tag>
+        <div>
+          <a-tag color="orange" class="font-weight-bold mr-0 mb-2">
+            {{ OBJECT_POST_TYPE[record.type] }}
+          </a-tag>
+        </div>
+        <div>
+          <a-tag :color="record.is_published ? '#87d068' : '#BBBBBB'" class="font-weight-bold mr-0">
+            {{ record.is_published ? $t('COMMON.status_enabled') : $t('COMMON.status_disabled')}}
+          </a-tag>
+        </div>
       </template>
 
       <!--Action-->
       <template slot="action"
                 slot-scope="record">
-        <router-link :to="{ name: 'knowledge.edit', params: {id: record.id} }"
+        <router-link :to="{ name: 'posts.edit', params: {id: record.id} }"
                      custom
                      v-slot="{ navigate }">
           <a-button @click="navigate"
@@ -96,7 +105,7 @@
     <!-- ACTIONS -->
     <div class="text-right mt-3">
       <router-link
-          :to="{name: 'knowledge.create'}">
+          :to="{name: 'posts.create'}">
         <a-button
             type="primary"
             class="font-weight-bold"
@@ -106,6 +115,7 @@
       </router-link>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
@@ -114,12 +124,17 @@ import store from '@/store'
 import { mapActions, mapState } from 'vuex'
 // Components
 import Pagination from '@/components/Pagination'
+import Search from '@/views/posts/Search'
 import FormMixin from '@/mixins/form.mixin'
+import { OBJECT_POST_TYPE } from '@/enum/option'
 
 export default {
   name: 'Index',
 
-  components: { Pagination },
+  components: {
+    Search,
+    Pagination
+  },
 
   mixins: [FormMixin],
 
@@ -128,10 +143,10 @@ export default {
       params: {
         page: 1,
         perPage: 10,
-        include: 'categories',
-        fields: 'id,images,title,description,created_at,updated_at,is_published',
-        'filters[type]': 'medical-knowledge'
-      }
+        fields: 'id,images,title,description,type,created_at,updated_at,is_published',
+        'filters[type]': 'news,research-development,single'
+      },
+      OBJECT_POST_TYPE
     }
   },
 
@@ -139,16 +154,15 @@ export default {
     const params = {
       page: 1,
       perPage: 10,
-      include: 'categories',
-      fields: 'id,images,title,description,created_at,updated_at,is_published',
-      'filters[type]': 'medical-knowledge'
+      fields: 'id,images,title,description,type,created_at,updated_at,is_published',
+      'filters[type]': 'news,research-development,single'
     }
-    store.dispatch('postKnowledge/getList', params).then(_ => next())
+    store.dispatch('posts/getList', params).then(_ => next())
   },
 
   computed: {
     // State
-    ...mapState('postKnowledge', ['list', 'pagination']),
+    ...mapState('posts', ['list', 'pagination']),
 
     columns () {
       return [
@@ -172,7 +186,7 @@ export default {
           scopedSlots: { customRender: 'date' }
         },
         {
-          title: this.$t('COMMON.type_category') + '/' + '\r\n' + this.$t('COMMON.status'),
+          title: this.$t('COMMON.type_post') + '/' + '\r\n' + this.$t('COMMON.status'),
           width: 100,
           scopedSlots: { customRender: 'status' }
         },
@@ -188,7 +202,25 @@ export default {
 
   methods: {
     // Action
-    ...mapActions('postKnowledge', ['getList', 'removeKnowledge']),
+    ...mapActions('posts', ['getList', 'removePost']),
+
+    onFilterChange ($event) {
+      const filter = {}
+      for (const property in $event) {
+        if (property === 'type') {
+          filter[`filters[${property}]`] = $event[property] ? $event[property] : 'news,research-development,single'
+        } else {
+          filter[`filters[${property}]`] = $event[property]
+        }
+      }
+
+      this.params = {
+        ...this.params,
+        ...filter,
+        page: 1
+      }
+      this.fetchList(this.params)
+    },
 
     changePage (num) {
       this.params = {
@@ -199,7 +231,7 @@ export default {
     },
 
     deleteRecord (id) {
-      this.removeKnowledge(id).then(result => {
+      this.removePost(id).then(result => {
         if (result) {
           this.onSuccess(this.$t('NOTIFICATION.title_completion'), this.$t('NOTIFICATION.msg_delete_success'))
           this.fetchList(this.params)

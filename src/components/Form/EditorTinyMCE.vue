@@ -5,6 +5,18 @@
     :vid="vid"
     :rules="rules"
     v-slot="{ errors }">
+    <!-- Label -->
+    <label
+        v-if="label"
+        class="mb-1">
+      {{ label }}
+      <span
+          v-if="rules.includes('required')"
+          class="required"
+          v-text="'*'"
+      />
+    </label>
+
     <div :class="{ 'has_error': errors[0] }">
       <!--Editor-->
       <Editor :value="value"
@@ -37,6 +49,7 @@ export default {
   },
 
   props: {
+    label: { type: String, default: '' },
     vid: { type: String, default: '' },
     value: { type: String, default: '' },
     field: { type: String, default: '' },
@@ -47,7 +60,7 @@ export default {
     return {
       apiKeyMCE: process.env.VUE_APP_KEY_API_TINYMCE,
       settingEditor: {
-        height: 250,
+        height: 750,
         width: '100%',
         deprecation_warnings: false,
         plugins: 'print preview paste code fullscreen image link table hr pagebreak anchor toc insertdatetime lists wordcount',
@@ -70,10 +83,11 @@ export default {
 
     handleUploadImage (blobInfo, success, failure, progress) {
       const formData = new FormData()
-      formData.append('thumbnail', blobInfo.blob(), blobInfo.filename())
+      formData.append('files[]', blobInfo.blob(), blobInfo.filename())
+      formData.append('type', 'thumbnail')
 
       this.uploadImage(formData)
-        .then(res => success(res.data.link_url))
+        .then(res => success(res.data[0].url))
         .catch(err => {
           if (err.response.data.code === 422) {
             failure(err.response.data.errors[0].message)
@@ -86,6 +100,10 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+label {
+  margin-bottom: 4px;
+  font-weight: bold;
+  color: #222222;
+}
 </style>

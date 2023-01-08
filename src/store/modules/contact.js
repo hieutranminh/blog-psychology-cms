@@ -1,18 +1,17 @@
 import {
   getList,
   show,
-  create,
   edit,
   remove
-} from '@/services/news.service'
+} from '@/services/contact.service'
 
 const initialState = {
-  list: null,
-  pagination: null,
-  detail: null
-
+  list: [],
+  pagination: {},
+  detail: {}
 }
 export const state = { ...initialState }
+
 const getters = {}
 
 const mutations = {
@@ -39,8 +38,8 @@ const actions = {
     })
   },
 
-  getNewsByID ({ commit }, id) {
-    return show(id).then(res => {
+  getContactByID ({ commit }, { id, params }) {
+    return show(id, params).then(res => {
       commit('SET_DETAIL', res.data)
 
       return true
@@ -49,15 +48,7 @@ const actions = {
     })
   },
 
-  createNews ({ commit }, body = {}) {
-    return create(body).then(res => {
-      return res
-    }).catch(err => {
-      return err.response.data
-    })
-  },
-
-  updateNews ({ commit }, params) {
+  updateContact ({ commit }, params) {
     const { id, body } = params
 
     return edit(id, body).then(res => {
@@ -67,7 +58,7 @@ const actions = {
     })
   },
 
-  removeNews ({ commit }, id) {
+  removeContact ({ commit }, id) {
     return remove(id).then(_ => {
       return true
     }).catch(_ => {

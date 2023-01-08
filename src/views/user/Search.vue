@@ -15,11 +15,11 @@
              v-text="$t('USER.filter_total_point_amount')"/>
 
       <div class="field-range w-350">
-        <a-input v-model.number="filter.total_point_amount_from"/>
+        <a-input v-model="filter.total_point_amount_from"/>
         <span class="ml-1">pt</span>
         <span class="ml-3 mr-3"
               v-text="'~'"/>
-        <a-input v-model.number="filter.total_point_amount_to"/>
+        <a-input v-model="filter.total_point_amount_to"/>
         <span class="ml-1">pt</span>
       </div>
     </div>

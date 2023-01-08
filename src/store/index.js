@@ -5,19 +5,21 @@ import Vuex from 'vuex'
 import loader from './modules/loader'
 import auth from './modules/auth'
 import setting from './modules/setting'
+import posts from './modules/posts'
 import postTeam from './modules/posts-team'
 import postKnowledge from './modules/posts-knowledge'
+import contact from './modules/contact'
 import admin from './modules/admin'
-import news from './modules/news'
 
 const modules = {
   loader,
   auth,
   setting,
+  posts,
   postTeam,
   postKnowledge,
-  admin,
-  news
+  contact,
+  admin
 }
 
 Vue.use(Vuex)

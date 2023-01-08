@@ -5,6 +5,8 @@
     "big_title": "Tiêu đề lớn",
     "title": "Tiêu đề",
     "description": "Miêu tả",
+    "email": "Địa chỉ email",
+    "note": "Ghi chú",
     "content": "Nội dung",
     "txt_button": "Nút",
     "link_button": "Đường dẫn",
@@ -26,15 +28,17 @@
     "disabled": "Ẩn",
     "line_content": "Nội dung dòng",
     "line": "Dòng",
-    "type_post": "Loại bài viết"
+    "type_post": "Loại bài viết",
+    "type_category": "Loại danh mục",
+    "chose_option": "Vui lòng chọn"
   },
   "NAVIGATION": {
     "home": "Quản lý trang chủ",
     "story": "Câu chuyện của chúng tôi",
     "team": "Quản lý đội ngũ",
     "knowledge": "Quản lý kiến thức y khoa",
-    "news": "Quản lý bài viết",
-    "user": "Quản lý người dùng",
+    "posts": "Quản lý bài viết",
+    "contact": "Quản lý liên hệ tư vấn",
     "admin": "Quản trị viên"
   },
   "NOTIFICATION": {
@@ -61,7 +65,9 @@
     "back": "Trở về",
     "update": "Cập nhật",
     "add": "Thêm mới",
-    "delete": "Xoá bỏ"
+    "delete": "Xoá bỏ",
+    "search": "Tìm kiếm",
+    "reset": "Đặt lại"
   },
   "FIELD": {
     "email": "Địa chỉ email",
@@ -111,5 +117,14 @@
     "title": "Quản lý kiến thức y khoa",
     "title_create": "Tạo mới bài viết",
     "title_edit": "Chỉnh sửa bài viết"
+  },
+  "POSTS": {
+    "title": "Quản lý bài vết",
+    "title_create": "Tạo mới bài viết",
+    "title_edit": "Chỉnh sửa bài viết"
+  },
+  "CONTACT": {
+    "title": "Quản lý liên hệ tư vấn",
+    "title_edit": "Chỉnh sửa liên hệ người dùng"
   }
 }

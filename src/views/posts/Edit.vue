@@ -4,16 +4,15 @@
 
 <script>
 import store from '@/store'
-import Form from '@/views/knowledge/Form'
+import Form from '@/views/posts/Form'
 export default {
   name: 'Edit',
   components: { Form },
   beforeRouteEnter (to, from, next) {
-    store.dispatch('postKnowledge/getKnowledgeByID', {
+    store.dispatch('posts/getPostByID', {
       id: to.params.id,
       params: {
-        include: 'categories',
-        fields: 'id,images,title,description,content,is_published'
+        fields: 'id,images,title,description,content,is_published,type'
       }
     }).then(_ => next())
   }

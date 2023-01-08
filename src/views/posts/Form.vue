@@ -50,13 +50,13 @@
                     @onFileSelect="onUploadImage($event)"
                     @resetThumbnail="form.thumbnail = ''"/>
 
-        <SelectField v-model="form.category"
+        <SelectField v-model="form.type"
                      class="mb-3"
                      rules="required"
                      :placeholder="$t('COMMON.chose_option')"
-                     :field="$t('COMMON.type_category')"
-                     :label="$t('COMMON.type_category')"
-                     :options="OPTION_POST_TYPE_KNOWLEDGE"/>
+                     :field="$t('COMMON.type_post')"
+                     :label="$t('COMMON.type_post')"
+                     :options="OPTION_POST_TYPE"/>
 
         <InputField v-model="form.title"
                     vid="title"
@@ -111,7 +111,7 @@ import TextAreaField from '@/components/Form/TextAreaField'
 import EditorTinyMCE from '@/components/Form/EditorTinyMCE'
 import SelectField from '@/components/Form/SelectField'
 import FormMixin from '@/mixins/form.mixin'
-import { OPTION_POST_TYPE_KNOWLEDGE } from '@/enum/option'
+import { OPTION_POST_TYPE } from '@/enum/option'
 
 export default {
   name: 'Form',
@@ -131,23 +131,22 @@ export default {
       form: {
         title: '',
         description: '',
-        type: 'medical-knowledge',
+        type: '',
         category: '',
         content: '',
         thumbnail: '',
         fileIds: [],
         is_published: 1
       },
-      OPTION_POST_TYPE_KNOWLEDGE
+      OPTION_POST_TYPE
     }
   },
 
   created () {
-    if (this.$route.name === 'knowledge.edit') {
+    if (this.$route.name === 'posts.edit') {
       this.form.title = this.detail.title
       this.form.description = this.detail.description
-      this.form.type = 'medical-knowledge'
-      this.form.category = this.detail.categories[0].id
+      this.form.type = this.detail.type
       this.form.content = this.detail.content
       this.form.thumbnail = this.detail.images[0].url
       this.form.fileIds = [this.detail.images[0].id]
@@ -156,11 +155,11 @@ export default {
   },
 
   computed: {
-    ...mapState('postKnowledge', ['detail'])
+    ...mapState('posts', ['detail'])
   },
 
   methods: {
-    ...mapActions('postKnowledge', ['createKnowledge', 'updateKnowledge']),
+    ...mapActions('posts', ['createPost', 'updatePost']),
 
     async validateBeforeSubmit () {
       const isValid = await this.$refs.observer.validate()
@@ -170,15 +169,15 @@ export default {
     },
 
     handleSubmit () {
-      return this.$route.name === 'knowledge.create'
+      return this.$route.name === 'posts.create'
         ? this.handleCreate()
         : this.handleUpdate()
     },
 
     handleCreate () {
-      this.createKnowledge(this.form).then(result => {
+      this.createPost(this.form).then(result => {
         if ('status' in result && result.status === 201) {
-          this.$router.push({ name: 'knowledge' })
+          this.$router.push({ name: 'posts' })
         } else {
           this.onError(this.$t('NOTIFICATION.title_fail'), this.$t('NOTIFICATION.msg_fail'))
         }
@@ -186,12 +185,12 @@ export default {
     },
 
     handleUpdate () {
-      this.updateKnowledge({
+      this.updatePost({
         id: this.detail.id,
         body: this.form
       }).then(result => {
         if ('status' in result && result.status === 204) {
-          this.$router.push({ name: 'knowledge' })
+          this.$router.push({ name: 'posts' })
         } else {
           this.onError(this.$t('NOTIFICATION.title_fail'), this.$t('NOTIFICATION.msg_fail'))
         }

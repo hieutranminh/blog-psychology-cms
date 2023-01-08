@@ -30,10 +30,17 @@ export const NAVIGATIONS = [
     role: [PERMISSION.FULL_ROLE]
   },
   {
-    id: 'news',
-    title: 'NAVIGATION.news',
+    id: 'posts',
+    title: 'NAVIGATION.posts',
     icon: 'pic-left',
-    routeName: 'news',
+    routeName: 'posts',
+    role: [PERMISSION.FULL_ROLE]
+  },
+  {
+    id: 'contact',
+    title: 'NAVIGATION.contact',
+    icon: 'solution',
+    routeName: 'contact',
     role: [PERMISSION.FULL_ROLE]
   },
   {

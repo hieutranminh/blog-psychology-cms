@@ -39,7 +39,7 @@ const actions = {
     })
   },
 
-  getKnowledgeByID ({ commit }, { id, params }) {
+  getPostByID ({ commit }, { id, params }) {
     return show(id, params).then(res => {
       commit('SET_DETAIL', res.data)
 
@@ -49,7 +49,7 @@ const actions = {
     })
   },
 
-  createKnowledge ({ commit }, body = {}) {
+  createPost ({ commit }, body = {}) {
     return create(body).then(res => {
       return res
     }).catch(err => {
@@ -57,7 +57,7 @@ const actions = {
     })
   },
 
-  updateKnowledge ({ commit }, params) {
+  updatePost ({ commit }, params) {
     const { id, body } = params
 
     return edit(id, body).then(res => {
@@ -67,7 +67,7 @@ const actions = {
     })
   },
 
-  removeKnowledge ({ commit }, id) {
+  removePost ({ commit }, id) {
     return remove(id).then(_ => {
       return true
     }).catch(_ => {

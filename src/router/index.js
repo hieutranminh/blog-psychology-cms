@@ -8,7 +8,8 @@ import HomeRoute from './modules/home'
 import StoryRoute from './modules/story'
 import TeamRoute from './modules/team'
 import KnowledgeRoute from './modules/knowledge'
-import NewsRoute from './modules/news'
+import PostsRoute from './modules/posts'
+import ContactRoute from './modules/contact'
 import AdminRoute from './modules/admin'
 import ErrorsRoute from './modules/errors'
 
@@ -38,7 +39,8 @@ const routes = [
       ...StoryRoute,
       ...TeamRoute,
       ...KnowledgeRoute,
-      ...NewsRoute,
+      ...PostsRoute,
+      ...ContactRoute,
       ...AdminRoute,
       ...ErrorsRoute
     ],
