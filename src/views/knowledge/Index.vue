@@ -64,13 +64,23 @@
       <!--Action-->
       <template slot="action"
                 slot-scope="record">
+        <a-tooltip placement="topRight">
+          <template slot="title">
+            <span>{{ `${URL_CLIENT}/${OBJECT_SLUG_CATEGORY[record.categories[0].slug]}/${record.slug}` }}</span>
+          </template>
+          <a-button @click.prevent="copyClipboard(`${URL_CLIENT}/${OBJECT_SLUG_CATEGORY[record.categories[0].slug]}/${record.slug}`)"
+                    icon="link"
+                    size="small"
+                    class="mr-1"/>
+        </a-tooltip>
+
         <router-link :to="{ name: 'knowledge.edit', params: {id: record.id} }"
                      custom
                      v-slot="{ navigate }">
           <a-button @click="navigate"
                     icon="edit"
                     size="small"
-                    type="primary" class="mr-2"/>
+                    type="primary" class="mr-1"/>
         </router-link>
 
         <a-popconfirm :title="$t('NOTIFICATION.msg_delete_confirm')"
@@ -115,6 +125,7 @@ import { mapActions, mapState } from 'vuex'
 // Components
 import Pagination from '@/components/Pagination'
 import FormMixin from '@/mixins/form.mixin'
+import { OBJECT_SLUG_CATEGORY } from '@/enum/option'
 
 export default {
   name: 'Index',
@@ -129,9 +140,11 @@ export default {
         page: 1,
         perPage: 10,
         include: 'categories',
-        fields: 'id,images,title,description,created_at,updated_at,is_published',
+        fields: 'id,images,title,description,created_at,updated_at,is_published,slug',
         'filters[type]': 'medical-knowledge'
-      }
+      },
+      URL_CLIENT: process.env.VUE_APP_URL_CLIENT,
+      OBJECT_SLUG_CATEGORY
     }
   },
 
@@ -140,7 +153,7 @@ export default {
       page: 1,
       perPage: 10,
       include: 'categories',
-      fields: 'id,images,title,description,created_at,updated_at,is_published',
+      fields: 'id,images,title,description,created_at,updated_at,is_published,slug',
       'filters[type]': 'medical-knowledge'
     }
     store.dispatch('postKnowledge/getList', params).then(_ => next())
@@ -179,7 +192,7 @@ export default {
         {
           title: this.$t('COMMON.action'),
           align: 'center',
-          width: 100,
+          width: 120,
           scopedSlots: { customRender: 'action' }
         }
       ]
@@ -207,6 +220,10 @@ export default {
           this.onSuccess(this.$t('NOTIFICATION.title_fail'), this.$t('NOTIFICATION.msg_delete_fail'))
         }
       })
+    },
+
+    copyClipboard (link) {
+      navigator.clipboard.writeText(link)
     },
 
     // FETCH

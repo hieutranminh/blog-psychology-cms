@@ -1,5 +1,4 @@
 import Resource from '@/components/Resource'
-import { PERMISSION } from '@/enum/permission'
 
 export default [
   {
@@ -11,62 +10,24 @@ export default [
         name: 'admin',
         component: () => import('@/views/admin/Index.vue'),
         meta: {
-          title: 'ADMIN.list',
+          title: 'ADMIN.title',
           breadcrumb: [
             { title: 'ADMIN.title' }
           ],
-          scrollTop: true,
-          permissions: [
-            PERMISSION.FULL_ROLE
-          ]
-        }
-      },
-      {
-        path: '/admin/create',
-        name: 'admin.create',
-        component: () => import('@/views/admin/Create.vue'),
-        meta: {
-          title: 'ADMIN.create',
-          breadcrumb: [
-            { title: 'ADMIN.title', routeName: 'admin' },
-            { title: 'ADMIN.create' }
-          ],
-          scrollTop: true,
-          permissions: [
-            PERMISSION.FULL_ROLE
-          ]
+          scrollTop: true
         }
       },
       {
         path: '/admin/edit/:id',
         name: 'admin.edit',
-        component: () => import('@/views/admin/Edit.vue'),
+        component: () => import('@/views/admin/Edit'),
         meta: {
-          title: 'ADMIN.edit',
+          title: 'ADMIN.title_edit',
           breadcrumb: [
             { title: 'ADMIN.title', routeName: 'admin' },
-            { title: 'ADMIN.edit' }
+            { title: 'ADMIN.title_edit' }
           ],
-          scrollTop: true,
-          permissions: [
-            PERMISSION.FULL_ROLE
-          ]
-        }
-      },
-      {
-        path: '/admin/detail/:id',
-        name: 'admin.detail',
-        component: () => import('@/views/admin/Detail.vue'),
-        meta: {
-          title: 'ADMIN.detail',
-          breadcrumb: [
-            { title: 'ADMIN.title', routeName: 'admin' },
-            { title: 'ADMIN.detail' }
-          ],
-          scrollTop: true,
-          permissions: [
-            PERMISSION.FULL_ROLE
-          ]
+          scrollTop: true
         }
       }
     ]

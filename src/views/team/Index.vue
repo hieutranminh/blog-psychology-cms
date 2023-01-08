@@ -61,13 +61,23 @@
       <!--Action-->
       <template slot="action"
                 slot-scope="record">
+        <a-tooltip placement="topRight">
+          <template slot="title">
+            <span>{{ `${URL_CLIENT}/doi-ngu/${record.slug}` }}</span>
+          </template>
+          <a-button @click.prevent="copyClipboard(`${URL_CLIENT}/doi-ngu/${record.slug}`)"
+                    icon="link"
+                    size="small"
+                    class="mr-1"/>
+        </a-tooltip>
+
         <router-link :to="{ name: 'team.edit', params: {id: record.id} }"
                      custom
                      v-slot="{ navigate }">
           <a-button @click="navigate"
                     icon="edit"
                     size="small"
-                    type="primary" class="mr-2"/>
+                    type="primary" class="mr-1"/>
         </router-link>
 
         <a-popconfirm :title="$t('NOTIFICATION.msg_delete_confirm')"
@@ -126,7 +136,8 @@ export default {
         page: 1,
         perPage: 10,
         'filters[type]': 'team'
-      }
+      },
+      URL_CLIENT: process.env.VUE_APP_URL_CLIENT
     }
   },
 
@@ -172,7 +183,7 @@ export default {
         {
           title: this.$t('COMMON.action'),
           align: 'center',
-          width: 100,
+          width: 120,
           scopedSlots: { customRender: 'action' }
         }
       ]
@@ -200,6 +211,10 @@ export default {
           this.onSuccess(this.$t('NOTIFICATION.title_fail'), this.$t('NOTIFICATION.msg_delete_fail'))
         }
       })
+    },
+
+    copyClipboard (link) {
+      navigator.clipboard.writeText(link)
     },
 
     // FETCH

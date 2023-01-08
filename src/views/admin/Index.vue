@@ -1,135 +1,118 @@
 <template>
   <div class="admin">
-    <!-- list admin -->
     <div class="container">
-      <!-- header list -->
-      <div class="d-flex justify-content-between mb-4">
-        <router-link :to="{name: 'admin.create'}">
-          <a-button
-            type="primary"
-            v-text="$t('BUTTON.create')"/>
-        </router-link>
+      <!--PAGINATION-->
+      <Pagination :show-size-changer="false"
+                  :total="pagination.total"
+                  :current-page="pagination.currentPage"
+                  :page-size="pagination.perPage"
+                  @changePage="changePage"
+                  class="text-right mb-3"/>
 
-        <!-- control table list -->
-        <Pagination v-if="list.length"
-                    :current-page="pagination.currentPage"
-                    :page-size="pagination.perPage"
-                    :total="pagination.total"
-                    @changePage="changePage"
-                    @changePageSize="pageSizeChange"/>
-      </div>
-
-      <!-- table -->
+      <!-- TABLE -->
       <a-table :columns="columns"
                :data-source="list"
                :locale="{emptyText: $t('COMMON.empty_data')}"
-               size="small"
-               class="table-common"
                :pagination="false"
                rowKey="id"
                bordered>
-        <!-- show status -->
-        <template slot="showStatus" slot-scope="text">
-          {{ $t(OBJECT_STATUS_ADMIN[text]) }}
+
+        <!--date-->
+        <template slot="date"
+                  slot-scope="record">
+          <div class="mb-1">
+            <p v-text="$t('COMMON.created_at')+':'" class="mb-0 font-weight-bold" style="font-size: 12px"/>
+            <span>{{ record.created_at | formatDate() }}</span>
+          </div>
+          <div>
+            <p v-text="$t('COMMON.updated_at')+':'" class="mb-0 font-weight-bold" style="font-size: 12px"/>
+            <span>{{ record.updated_at | formatDate() }}</span>
+          </div>
         </template>
 
-        <!-- show role -->
-        <template slot="role" slot-scope="text">
-          {{ $t(OBJECT_ROLE[text]) }}
-        </template>
-
-        <!--End date-->
-        <template slot="last_login_at" slot-scope="date">
-          {{ date | formatDate('YYYY/MM/DD HH:mm')}}
-        </template>
-
-        <!-- action -->
-        <template slot="action" slot-scope="record">
-          <router-link :to="{ name: 'admin.detail', params: {id: record.id} }"
-                       v-slot="{ navigate }"
-                       custom>
-            <a-button type="primary"
-                      @click="navigate"
+        <!--Action-->
+        <template slot="action"
+                  slot-scope="record">
+          <router-link :to="{ name: 'admin.edit', params: {id: record.name === 'admin' ? 'not' : record.id} }"
+                       custom
+                       v-slot="{ navigate }">
+            <a-button @click="navigate"
+                      icon="edit"
                       size="small"
-                      v-text="$t('BUTTON.detail')"/>
+                      :disabled="record.name === 'admin'"
+                      type="primary" class="mr-2"/>
           </router-link>
         </template>
       </a-table>
 
-      <!-- pagination footer -->
-      <Pagination v-if="list.length"
-                  :show-size-changer="false"
+      <!--PAGINATION-->
+      <Pagination :show-size-changer="false"
+                  :total="pagination.total"
                   :current-page="pagination.currentPage"
                   :page-size="pagination.perPage"
-                  :total="pagination.total"
                   @changePage="changePage"
-                  @changePageSize="pageSizeChange"
-                  class="mt-4 text-right" />
+                  class="text-right mt-3" />
     </div>
   </div>
 </template>
 
 <script>
-import Pagination from '@/components/Pagination'
-import { mapActions, mapState } from 'vuex'
+// Store
 import store from '@/store'
-import { OBJECT_ROLE, OBJECT_STATUS_ADMIN } from '@/enum/option'
+import { mapActions, mapState } from 'vuex'
+// Components
+import Pagination from '@/components/Pagination'
+import FormMixin from '@/mixins/form.mixin'
 
 export default {
   name: 'Index',
 
-  components: { Pagination },
+  components: {
+    Pagination
+  },
+
+  mixins: [FormMixin],
 
   data () {
     return {
       params: {
         page: 1,
-        perPage: 20,
-        orderBy: 'created_at',
-        sortedBy: 'asc'
-      },
-      OBJECT_ROLE,
-      OBJECT_STATUS_ADMIN
+        perPage: 10
+      }
     }
   },
 
   beforeRouteEnter (to, from, next) {
     const params = {
       page: 1,
-      perPage: 20,
-      orderBy: 'created_at',
-      sortedBy: 'asc'
+      perPage: 10
     }
-    store.dispatch('admin/getLists', params).then(_ => next())
+    store.dispatch('admin/getList', params).then(_ => next())
   },
 
   computed: {
+    // State
     ...mapState('admin', ['list', 'pagination']),
 
     columns () {
       return [
         {
-          title: this.$t('TABLE_ADMIN.admin_name'),
+          title: this.$t('COMMON.name'),
           dataIndex: 'name'
         },
         {
-          title: this.$t('TABLE_ADMIN.active_status'),
-          dataIndex: 'status',
-          scopedSlots: { customRender: 'showStatus' }
+          title: this.$t('COMMON.email'),
+          dataIndex: 'email'
         },
         {
-          title: this.$t('TABLE_ADMIN.role'),
-          dataIndex: 'role',
-          scopedSlots: { customRender: 'role' }
+          title: this.$t('COMMON.date'),
+          width: 160,
+          scopedSlots: { customRender: 'date' }
         },
         {
-          title: this.$t('TABLE_ADMIN.time_login_last'),
-          dataIndex: 'last_login_at',
-          scopedSlots: { customRender: 'last_login_at' }
-        },
-        {
+          title: this.$t('COMMON.action'),
           align: 'center',
-          width: 90,
+          width: 100,
           scopedSlots: { customRender: 'action' }
         }
       ]
@@ -137,40 +120,46 @@ export default {
   },
 
   methods: {
-    // ACTIONS
-    ...mapActions('admin', ['getLists']),
+    // Action
+    ...mapActions('admin', ['getList', 'removeContact']),
 
-    pageSizeChange (pageSize) {
+    onFilterChange ($event) {
+      const filter = {}
+      for (const property in $event) {
+        filter[`filters[${property}]`] = $event[property]
+      }
+
       this.params = {
         ...this.params,
-        perPage: pageSize,
+        ...filter,
         page: 1
       }
-
       this.fetchList(this.params)
     },
 
-    changePage (pageNumber) {
+    changePage (num) {
       this.params = {
         ...this.params,
-        page: pageNumber
+        page: num
       }
       this.fetchList(this.params)
     },
 
-    fetchList (params) {
-      this.getLists(params)
+    deleteRecord (id) {
+      this.removeContact(id).then(result => {
+        if (result) {
+          this.onSuccess(this.$t('NOTIFICATION.title_completion'), this.$t('NOTIFICATION.msg_delete_success'))
+          this.fetchList(this.params)
+        } else {
+          this.onSuccess(this.$t('NOTIFICATION.title_fail'), this.$t('NOTIFICATION.msg_delete_fail'))
+        }
+      })
+    },
+
+    // FETCH
+    fetchList (params = {}) {
+      this.getList(params)
     }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.header-list {
-  display: flex;
-  align-content: center;
-  justify-content: space-between;
-  padding: 0 0 20px;
-  margin-bottom: 20px;
-}
-</style>

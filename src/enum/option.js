@@ -52,3 +52,8 @@ export const OBJECT_CONTACT = {
   new: 'Chưa liên hệ',
   checked: 'Đã liên hệ'
 }
+
+export const OBJECT_SLUG_CATEGORY = {
+  adult: 'nguoi-lon',
+  children: 'tre-em'
+}

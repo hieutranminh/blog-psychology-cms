@@ -98,6 +98,7 @@
     "login_id": "Tên đăng nhập",
     "password": "Mật khẩu",
     "forgot_password": "Quên mật khẩu",
+    "confirm_password": "Xác nhận mật khẩu",
     "email_registered":"登録されているメールアドレスを入力してください。 (VI)",
     "reset_password": "パスワードリセット (VI)",
     "msg_token_expired": "URLが不正、また有効期限が切れています。(VI)"
@@ -128,5 +129,13 @@
   "CONTACT": {
     "title": "Quản lý liên hệ tư vấn",
     "title_edit": "Chỉnh sửa liên hệ người dùng"
+  },
+  "ADMIN": {
+    "title": "Quản trị viên",
+    "title_edit": "Chỉnh sửa quản trị viên"
+  },
+  "SETTING": {
+    "title": "Quản lý cài đặt",
+    "title_edit": "Chỉnh sửa cài đặt"
   }
 }
