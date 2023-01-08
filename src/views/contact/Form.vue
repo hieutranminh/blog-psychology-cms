@@ -11,12 +11,12 @@
           <label class="font-weight-bold mb-0 mr-3"
                  v-text="$t('COMMON.status') + ':'"/>
 
-          <a-radio-group v-model="form.is_published">
-            <a-radio :value="1">
-              {{$t('COMMON.enabled')}}
+          <a-radio-group v-model="form.status">
+            <a-radio value="new">
+              {{$t('COMMON.new')}}
             </a-radio>
-            <a-radio :value="0">
-              {{$t('COMMON.disabled')}}
+            <a-radio value="checked">
+              {{$t('COMMON.checked')}}
             </a-radio>
           </a-radio-group>
         </div>

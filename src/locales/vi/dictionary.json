@@ -30,7 +30,9 @@
     "line": "Dòng",
     "type_post": "Loại bài viết",
     "type_category": "Loại danh mục",
-    "chose_option": "Vui lòng chọn"
+    "chose_option": "Vui lòng chọn",
+    "new": "Chưa liên hệ",
+    "checked": "Đã liên hệ"
   },
   "NAVIGATION": {
     "home": "Quản lý trang chủ",

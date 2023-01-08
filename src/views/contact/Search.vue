@@ -17,12 +17,18 @@
     <a-col :span="12">
       <InputField v-model="filter.phone_number"
                   vid="phone_number"
-                  class="mb-3"
+                  class="mb-2"
                   :field="$t('COMMON.phone')"
                   :label="$t('COMMON.phone')"/>
 
+      <SelectField v-model="filter.status"
+                   class="mb-3"
+                   :field="$t('COMMON.status')"
+                   :label="$t('COMMON.status')"
+                   :options="OPTION_CONTACT"/>
+
       <!--ACTION-->
-      <div class="text-right pt-3">
+      <div class="text-right">
         <a-button @click.prevent="reset"
                   type="default"
                   class="mr-2 font-weight-bold"
@@ -42,11 +48,14 @@
 
 <script>
 import InputField from '@/components/Form/InputField'
+import SelectField from '@/components/Form/SelectField'
+import { OPTION_CONTACT } from '@/enum/option'
 
 export default {
   name: 'Search.vue',
 
   components: {
+    SelectField,
     InputField
   },
 
@@ -55,8 +64,10 @@ export default {
       filter: {
         name: null,
         email: null,
-        phone_number: null
-      }
+        phone_number: null,
+        status: null
+      },
+      OPTION_CONTACT
     }
   },
 

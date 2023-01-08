@@ -34,3 +34,21 @@ export const OBJECT_POST_TYPE = {
   'research-development': 'Nghiên cứu & phát triển',
   single: 'Single'
 }
+
+export const OPTION_CONTACT = [
+  {
+    id: 1,
+    name: 'Đã liên hệ',
+    value: 'checked'
+  },
+  {
+    id: 2,
+    name: 'Chưa liên hệ',
+    value: 'new'
+  }
+]
+
+export const OBJECT_CONTACT = {
+  new: 'Chưa liên hệ',
+  checked: 'Đã liên hệ'
+}

@@ -60,7 +60,7 @@ export default {
     return {
       apiKeyMCE: process.env.VUE_APP_KEY_API_TINYMCE,
       settingEditor: {
-        height: 750,
+        height: 500,
         width: '100%',
         deprecation_warnings: false,
         plugins: 'print preview paste code fullscreen image link table hr pagebreak anchor toc insertdatetime lists wordcount',

@@ -45,16 +45,9 @@
         <!--status-->
         <template slot="status"
                   slot-scope="record">
-          <div>
-            <a-tag color="orange" class="font-weight-bold mr-0 mb-2">
-              {{ OBJECT_POST_TYPE[record.type] }}
-            </a-tag>
-          </div>
-          <div>
-            <a-tag :color="record.is_published ? '#87d068' : '#BBBBBB'" class="font-weight-bold mr-0">
-              {{ record.is_published ? $t('COMMON.status_enabled') : $t('COMMON.status_disabled')}}
-            </a-tag>
-          </div>
+          <a-tag :color="record.status === 'new' ? 'orange' : '#BBBBBB'" class="font-weight-bold mr-0 mb-2">
+            {{ OBJECT_CONTACT[record.status] }}
+          </a-tag>
         </template>
 
         <!--Action-->
@@ -100,6 +93,7 @@ import { mapActions, mapState } from 'vuex'
 import Pagination from '@/components/Pagination'
 import Search from '@/views/contact/Search'
 import FormMixin from '@/mixins/form.mixin'
+import { OBJECT_CONTACT } from '@/enum/option'
 
 export default {
   name: 'Index',
@@ -116,7 +110,8 @@ export default {
       params: {
         page: 1,
         perPage: 10
-      }
+      },
+      OBJECT_CONTACT
     }
   },
 
@@ -151,6 +146,11 @@ export default {
           title: this.$t('COMMON.note'),
           dataIndex: 'note',
           width: 250
+        },
+        {
+          title: this.$t('COMMON.status'),
+          width: 160,
+          scopedSlots: { customRender: 'status' }
         },
         {
           title: this.$t('COMMON.date'),
