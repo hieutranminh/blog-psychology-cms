@@ -39,7 +39,7 @@
         <img :src="record.images[0].url | imageEmpty"
              alt="pic"
              loading="lazy"
-             style="border-radius: 50%; aspect-ratio: 4/3;">
+             style="aspect-ratio: 4/3;">
       </template>
 
       <!--date-->
@@ -75,9 +75,9 @@
                 slot-scope="record">
         <a-tooltip placement="topRight">
           <template slot="title">
-            <span>{{ `${URL_CLIENT}/${record.slug}` }}</span>
+            <span>{{ `${URL_CLIENT}/${OBJECT_SLUG_POST_TYPE[record.type]}/${record.slug}` }}</span>
           </template>
-          <a-button @click.prevent="copyClipboard(`${URL_CLIENT}/${record.slug}`)"
+          <a-button @click.prevent="copyClipboard(`${URL_CLIENT}/${OBJECT_SLUG_POST_TYPE[record.type]}/${record.slug}`)"
                     icon="link"
                     size="small"
                     class="mr-1"/>
@@ -136,7 +136,7 @@ import { mapActions, mapState } from 'vuex'
 import Pagination from '@/components/Pagination'
 import Search from '@/views/posts/Search'
 import FormMixin from '@/mixins/form.mixin'
-import { OBJECT_POST_TYPE } from '@/enum/option'
+import { OBJECT_POST_TYPE, OBJECT_SLUG_POST_TYPE } from '@/enum/option'
 
 export default {
   name: 'Index',
@@ -157,6 +157,7 @@ export default {
         'filters[type]': 'news,research-development,single'
       },
       OBJECT_POST_TYPE,
+      OBJECT_SLUG_POST_TYPE,
       URL_CLIENT: process.env.VUE_APP_URL_CLIENT
     }
   },

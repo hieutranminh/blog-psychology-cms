@@ -34,7 +34,7 @@
         <img :src="record.images[0].url | imageEmpty"
              alt="pic"
              loading="lazy"
-             style="border-radius: 50%; aspect-ratio: 4/3;">
+             style="aspect-ratio: 4/3;">
       </template>
 
       <!--date-->

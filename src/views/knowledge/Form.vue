@@ -62,8 +62,8 @@
                     vid="title"
                     rules="required|max:200"
                     class="mb-3"
-                    :field="$t('COMMON.name')"
-                    :label="$t('COMMON.name')"/>
+                    :field="$t('COMMON.title')"
+                    :label="$t('COMMON.title')"/>
 
         <TextAreaField v-model="form.description"
                        vid="description"

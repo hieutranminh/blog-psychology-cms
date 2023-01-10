@@ -57,3 +57,9 @@ export const OBJECT_SLUG_CATEGORY = {
   adult: 'nguoi-lon',
   children: 'tre-em'
 }
+
+export const OBJECT_SLUG_POST_TYPE = {
+  news: 'tin-tuc',
+  'research-development': 'nghien-cuu',
+  single: 'tin-tuc'
+}
