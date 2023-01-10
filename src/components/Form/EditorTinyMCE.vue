@@ -65,7 +65,7 @@ export default {
         deprecation_warnings: false,
         plugins: 'print preview paste code fullscreen image link table hr pagebreak anchor toc insertdatetime lists wordcount',
         menubar: 'file edit view insert format tools table tc help',
-        toolbar: 'undo redo | image table | fontselect fontsizeselect | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
+        toolbar: 'undo redo | image table | fontselect fontsizeselect | formatselect | lineheight bold italic forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
         file_picker_types: 'image',
         images_file_types: 'jpeg,jpg,png,gif,webp',
         images_upload_handler: this.handleUploadImage,
