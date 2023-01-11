@@ -57,7 +57,8 @@
     "msg_update_fail": "Cập nhật thất bại",
     "msg_delete_success": "Xoá thành công",
     "msg_delete_fail": "Xoá thất bại",
-    "msg_delete_confirm": "Bạn có chắc chắn muốn xoá ?"
+    "msg_delete_confirm": "Bạn có chắc chắn muốn xoá ?",
+    "msg_upload_fail": "Hình bạn chọn đang có vấn đề , vui lòng chọn hình định dạng khác."
   },
   "BUTTON": {
     "login": "Đăng nhập",

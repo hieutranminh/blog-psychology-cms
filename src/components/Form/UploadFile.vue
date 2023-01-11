@@ -59,9 +59,12 @@
 
 <script>
 import { uploadImage } from '@/services/uploads.service'
+import FormMixin from '@/mixins/form.mixin'
 
 export default {
   name: 'UploadFile',
+
+  mixins: [FormMixin],
 
   props: {
     label: {
@@ -127,8 +130,10 @@ export default {
             // Emit data outside ( maybe include fileId & fileUrl )
             this.$emit('onFileSelect', res.data[0])
           }
-        }).catch(err => {
-          console.log('err', err.response.data)
+        }).catch(_ => {
+          this.onError(this.$t('NOTIFICATION.title_fail'), this.$t('NOTIFICATION.msg_upload_fail'))
+          this.previewUrl = null
+          this.$emit('resetThumbnail')
         })
       } else {
         this.previewUrl = null
