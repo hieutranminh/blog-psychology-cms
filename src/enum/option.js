@@ -11,6 +11,19 @@ export const OPTION_POST_TYPE_KNOWLEDGE = [
   }
 ]
 
+export const OPTION_FILTER_KNOWLEDGE = [
+  {
+    id: 1,
+    name: 'Người lớn',
+    value: 'adult'
+  },
+  {
+    id: 2,
+    name: 'Trẻ em',
+    value: 'children'
+  }
+]
+
 export const OPTION_POST_TYPE = [
   {
     id: 1,

@@ -1,5 +1,10 @@
 <template>
-  <div class="container">
+  <div class="knowledge">
+    <div class="container mb-3">
+      <Search @filter-changed="onFilterChange($event)"/>
+    </div>
+
+    <div class="container">
     <!-- ACTIONS -->
     <div class="text-right mb-3">
       <router-link
@@ -116,6 +121,7 @@
       </router-link>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
@@ -124,13 +130,14 @@ import store from '@/store'
 import { mapActions, mapState } from 'vuex'
 // Components
 import Pagination from '@/components/Pagination'
+import Search from '@/views/knowledge/Search'
 import FormMixin from '@/mixins/form.mixin'
 import { OBJECT_SLUG_CATEGORY } from '@/enum/option'
 
 export default {
   name: 'Index',
 
-  components: { Pagination },
+  components: { Search, Pagination },
 
   mixins: [FormMixin],
 
@@ -202,6 +209,24 @@ export default {
   methods: {
     // Action
     ...mapActions('postKnowledge', ['getList', 'removeKnowledge']),
+
+    onFilterChange ($event) {
+      const filter = {}
+      for (const property in $event) {
+        if (property === 'type') {
+          filter[`filters[${property}]`] = $event[property] ? $event[property] : 'news,research-development,single'
+        } else {
+          filter[`filters[${property}]`] = $event[property]
+        }
+      }
+
+      this.params = {
+        ...this.params,
+        ...filter,
+        page: 1
+      }
+      this.fetchList(this.params)
+    },
 
     changePage (num) {
       this.params = {
