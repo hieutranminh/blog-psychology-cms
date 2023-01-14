@@ -38,7 +38,7 @@
 
             <TextAreaField v-model="form.value.banner.desc"
                            vid="desc"
-                           rules="required|max:250"
+                           rules="max:250"
                            class="mb-2"
                            :field="$t('COMMON.description')"
                            :label="$t('COMMON.description')"/>
@@ -47,7 +47,7 @@
               <a-col span="12">
                 <InputField v-model="form.value.banner.btn_text"
                             vid="btn_text"
-                            rules="required|max:30"
+                            rules="max:30"
                             class="mb-2"
                             :field="$t('COMMON.txt_button')"
                             :label="$t('COMMON.txt_button')"/>
@@ -55,7 +55,6 @@
               <a-col span="12">
                 <InputField v-model="form.value.banner.btn_link"
                             vid="btn_link"
-                            rules="required"
                             class="mb-2"
                             :field="$t('COMMON.link_button')"
                             :label="$t('COMMON.link_button')"/>
@@ -80,6 +79,7 @@
                         :thumbnail="form.value.section_01.thumbnail"
                         :field="$t('COMMON.image')"
                         :label="$t('COMMON.image')"
+                        class="auto-image"
                         vid="file_01"
                         @onFileSelect="form.value.section_01.thumbnail = $event.url"
                         @resetThumbnail="form.value.section_01.thumbnail = ''"/>
@@ -95,7 +95,7 @@
 
             <TextAreaField v-model="form.value.section_01.desc"
                            vid="desc_01"
-                           rules="required|max:250"
+                           rules="required|max:2000"
                            class="mb-2"
                            :field="$t('COMMON.description')"
                            :label="$t('COMMON.description')"/>
@@ -104,7 +104,7 @@
               <a-col span="12">
                 <InputField v-model="form.value.section_01.btn_text"
                             vid="btn_text_01"
-                            rules="required|max:30"
+                            rules="max:30"
                             class="mb-2"
                             :field="$t('COMMON.txt_button')"
                             :label="$t('COMMON.txt_button')"/>
@@ -112,7 +112,6 @@
               <a-col span="12">
                 <InputField v-model="form.value.section_01.btn_link"
                             vid="btn_link_01"
-                            rules="required"
                             class="mb-2"
                             :field="$t('COMMON.link_button')"
                             :label="$t('COMMON.link_button')"/>
@@ -130,6 +129,7 @@
                         :thumbnail="form.value.section_02.thumbnail"
                         :field="$t('COMMON.image')"
                         :label="$t('COMMON.image')"
+                        class="auto-image"
                         vid="file_02"
                         @onFileSelect="form.value.section_02.thumbnail = $event.url"
                         @resetThumbnail="form.value.section_02.thumbnail = ''"/>
@@ -145,7 +145,7 @@
 
             <TextAreaField v-model="form.value.section_02.desc"
                            vid="desc_02"
-                           rules="required|max:250"
+                           rules="required|max:2000"
                            class="mb-2"
                            :field="$t('COMMON.description')"
                            :label="$t('COMMON.description')"/>
@@ -154,7 +154,7 @@
               <a-col span="12">
                 <InputField v-model="form.value.section_02.btn_text"
                             vid="btn_text_02"
-                            rules="required|max:30"
+                            rules="max:30"
                             class="mb-2"
                             :field="$t('COMMON.txt_button')"
                             :label="$t('COMMON.txt_button')"/>
@@ -162,7 +162,6 @@
               <a-col span="12">
                 <InputField v-model="form.value.section_02.btn_link"
                             vid="btn_link_02"
-                            rules="required"
                             class="mb-2"
                             :field="$t('COMMON.link_button')"
                             :label="$t('COMMON.link_button')"/>
