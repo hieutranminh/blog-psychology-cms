@@ -177,7 +177,7 @@ export default {
         {
           title: this.$t('COMMON.status'),
           dataIndex: 'is_published',
-          width: 100,
+          width: 140,
           scopedSlots: { customRender: 'status' }
         },
         {

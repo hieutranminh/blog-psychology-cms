@@ -37,6 +37,7 @@
   "NAVIGATION": {
     "home": "Quản lý trang chủ",
     "story": "Câu chuyện của chúng tôi",
+    "service": "Quản lý dịch vụ",
     "team": "Quản lý đội ngũ",
     "knowledge": "Quản lý kiến thức y khoa",
     "posts": "Quản lý bài viết",
@@ -70,7 +71,8 @@
     "add": "Thêm mới",
     "delete": "Xoá bỏ",
     "search": "Tìm kiếm",
-    "reset": "Đặt lại"
+    "reset": "Đặt lại",
+    "download": "Xuất file Excel"
   },
   "FIELD": {
     "email": "Địa chỉ email",
@@ -111,6 +113,10 @@
   "STORY": {
     "title": "Quản lý trang câu chuyện của chúng tôi",
     "title_edit": "Chỉnh sửa câu chuyện của chúng tôi"
+  },
+  "SERVICE": {
+    "title": "Quản lý trang dịch vụ",
+    "title_edit": "Chỉnh sửa dịch vụ"
   },
   "TEAM": {
     "title": "Quản lý đội ngũ",

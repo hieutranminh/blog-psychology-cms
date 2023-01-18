@@ -6,6 +6,7 @@ import { LoginGuard, AuthGuard, ResolveGuard } from '@/router/guards'
 import AuthRoute from './modules/auth'
 import HomeRoute from './modules/home'
 import StoryRoute from './modules/story'
+import ServiceRoute from './modules/service'
 import TeamRoute from './modules/team'
 import KnowledgeRoute from './modules/knowledge'
 import PostsRoute from './modules/posts'
@@ -37,6 +38,7 @@ const routes = [
     children: [
       ...HomeRoute,
       ...StoryRoute,
+      ...ServiceRoute,
       ...TeamRoute,
       ...KnowledgeRoute,
       ...PostsRoute,

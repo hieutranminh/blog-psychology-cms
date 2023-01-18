@@ -199,7 +199,7 @@ export default {
         },
         {
           title: this.$t('COMMON.type_post') + '/' + '\r\n' + this.$t('COMMON.status'),
-          width: 100,
+          width: 140,
           scopedSlots: { customRender: 'status' }
         },
         {

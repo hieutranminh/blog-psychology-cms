@@ -9,9 +9,18 @@
 
       <InputField v-model="filter.email"
                   vid="email"
-                  class="mb-2"
+                  class="mb-3"
                   :field="$t('COMMON.email')"
                   :label="$t('COMMON.email')"/>
+
+      <div class="text-left">
+        <a-button @click.prevent="$emit('download')"
+                  type="default"
+                  class="mr-2 font-weight-bold btn-excel"
+                  icon="file-excel">
+          {{ $t('BUTTON.download') }}
+        </a-button>
+      </div>
     </a-col>
 
     <a-col :span="12">
@@ -92,5 +101,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+  .btn-excel {
+    background-color: #87d068;
+    &:hover, &:focus {
+      border: 1px solid #ffffff;
+      color: #ffffff;
+    }
+  }
 </style>

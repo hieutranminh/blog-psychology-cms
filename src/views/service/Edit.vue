@@ -318,7 +318,7 @@ export default {
   data () {
     return {
       form: {
-        key: 'we_story',
+        key: 'we_service',
         value: {
           section_01: {
             thumbnail: '',
@@ -368,16 +368,16 @@ export default {
   },
 
   created () {
-    if (this.dataWeStory) {
+    if (this.dataWeService) {
       this.form.value = {
         ...this.form.value,
-        ...JSON.parse(JSON.stringify(this.dataWeStory))
+        ...JSON.parse(JSON.stringify(this.dataWeService))
       }
     }
   },
 
   computed: {
-    ...mapGetters('setting', ['dataWeStory'])
+    ...mapGetters('setting', ['dataWeService'])
   },
 
   methods: {
@@ -393,7 +393,7 @@ export default {
     handleSubmit () {
       this.updateSetting([this.form]).then(result => {
         if (result) {
-          this.$router.push({ name: 'story' })
+          this.$router.push({ name: 'service' })
         } else {
           this.onError(this.$t('NOTIFICATION.title_fail'), this.$t('NOTIFICATION.title_fail'))
         }

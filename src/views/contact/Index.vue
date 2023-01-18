@@ -1,7 +1,8 @@
 <template>
   <div class="contact">
     <div class="container mb-3">
-      <Search @filter-changed="onFilterChange($event)"/>
+      <Search @filter-changed="onFilterChange($event)"
+              @download="onDownload"/>
     </div>
 
     <div class="container">
@@ -18,8 +19,10 @@
                :data-source="list"
                :locale="{emptyText: $t('COMMON.empty_data')}"
                :pagination="false"
+               :scroll="{ x: 900 }"
                rowKey="id"
-               bordered>
+               bordered
+               @change="handleTableChange">
         <!--image-->
         <template slot="image"
                   slot-scope="record">
@@ -94,6 +97,7 @@ import Pagination from '@/components/Pagination'
 import Search from '@/views/contact/Search'
 import FormMixin from '@/mixins/form.mixin'
 import { OBJECT_CONTACT } from '@/enum/option'
+import { dataContact } from '@/services/download.service'
 
 export default {
   name: 'Index',
@@ -131,16 +135,18 @@ export default {
       return [
         {
           title: this.$t('COMMON.name'),
-          dataIndex: 'name'
+          dataIndex: 'name',
+          width: 150
         },
         {
           title: this.$t('COMMON.email'),
-          dataIndex: 'email'
+          dataIndex: 'email',
+          width: 150
         },
         {
           title: this.$t('COMMON.phone'),
           dataIndex: 'phone_number',
-          width: 100
+          width: 130
         },
         {
           title: this.$t('COMMON.note'),
@@ -155,11 +161,13 @@ export default {
         {
           title: this.$t('COMMON.date'),
           width: 160,
+          sorter: true,
           scopedSlots: { customRender: 'date' }
         },
         {
           title: this.$t('COMMON.action'),
           align: 'center',
+          fixed: 'right',
           width: 100,
           scopedSlots: { customRender: 'action' }
         }
@@ -191,6 +199,32 @@ export default {
         page: num
       }
       this.fetchList(this.params)
+    },
+
+    handleTableChange (pagination, filters, sorter) {
+      this.params = {
+        ...this.params,
+        'sortBy[updated_at]': sorter.order ? sorter.order.slice(0, -3) : 'desc'
+      }
+
+      this.fetchList(this.params)
+    },
+
+    onDownload () {
+      delete this.params.page
+      delete this.params.perPage
+      dataContact(this.params).then(result => {
+        this.actionDownload('LienHe', result)
+      })
+    },
+
+    actionDownload (name = 'File', result) {
+      const link = document.createElement('a')
+      const newFileNameExport = [name, 'DuLieu'].join('_')
+      link.href = window.URL.createObjectURL(new Blob([result.data]))
+      link.setAttribute('download', newFileNameExport + '.xlsx')
+      document.body.appendChild(link)
+      link.click()
     },
 
     deleteRecord (id) {

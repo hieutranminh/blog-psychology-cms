@@ -2,7 +2,7 @@
   <div class="container">
     <div class="text-right mb-3">
       <router-link
-        :to="{name: 'story.edit'}">
+        :to="{name: 'service.edit'}">
         <a-button
           type="primary"
           class="font-weight-bold"
@@ -14,47 +14,47 @@
 
     <a-card :title="$t('TITLE.manage_section_01')" class="mb-4">
       <HomeInfo
-          :image="dataWeStory.section_01.thumbnail"
-          :title="dataWeStory.section_01.title"
-          :description="dataWeStory.section_01.desc"
-          :btn_text="dataWeStory.section_01.btn_text"
-          :btn_link="dataWeStory.section_01.btn_link"/>
+          :image="dataWeService.section_01.thumbnail"
+          :title="dataWeService.section_01.title"
+          :description="dataWeService.section_01.desc"
+          :btn_text="dataWeService.section_01.btn_text"
+          :btn_link="dataWeService.section_01.btn_link"/>
     </a-card>
 
     <a-card :title="$t('TITLE.manage_section_02')" class="mb-4">
       <HomeInfo
-          :image="dataWeStory.section_02.thumbnail"
-          :title="dataWeStory.section_02.title"
-          :description="dataWeStory.section_02.desc"
-          :btn_text="dataWeStory.section_02.btn_text"
-          :btn_link="dataWeStory.section_02.btn_link"/>
+          :image="dataWeService.section_02.thumbnail"
+          :title="dataWeService.section_02.title"
+          :description="dataWeService.section_02.desc"
+          :btn_text="dataWeService.section_02.btn_text"
+          :btn_link="dataWeService.section_02.btn_link"/>
     </a-card>
 
     <a-card :title="$t('TITLE.manage_section_03')" class="mb-4">
       <HomeInfo
-          :image="dataWeStory.section_03.thumbnail"
-          :title="dataWeStory.section_03.title"
-          :description="dataWeStory.section_03.desc"
-          :btn_text="dataWeStory.section_03.btn_text"
-          :btn_link="dataWeStory.section_03.btn_link"/>
+          :image="dataWeService.section_03.thumbnail"
+          :title="dataWeService.section_03.title"
+          :description="dataWeService.section_03.desc"
+          :btn_text="dataWeService.section_03.btn_text"
+          :btn_link="dataWeService.section_03.btn_link"/>
     </a-card>
 
     <a-card :title="$t('TITLE.manage_section_04')" class="mb-4">
       <HomeInfo
-        :image="dataWeStory.section_04.thumbnail"
-        :title="dataWeStory.section_04.title"
-        :description="dataWeStory.section_04.desc"
-        :btn_text="dataWeStory.section_04.btn_text"
-        :btn_link="dataWeStory.section_04.btn_link"/>
+        :image="dataWeService.section_04.thumbnail"
+        :title="dataWeService.section_04.title"
+        :description="dataWeService.section_04.desc"
+        :btn_text="dataWeService.section_04.btn_text"
+        :btn_link="dataWeService.section_04.btn_link"/>
     </a-card>
 
     <a-card :title="$t('TITLE.manage_section_05')" class="mb-4">
       <HomeInfo
-        :image="dataWeStory.section_05.thumbnail"
-        :title="dataWeStory.section_05.title"
-        :description="dataWeStory.section_05.desc"
-        :btn_text="dataWeStory.section_05.btn_text"
-        :btn_link="dataWeStory.section_05.btn_link"/>
+        :image="dataWeService.section_05.thumbnail"
+        :title="dataWeService.section_05.title"
+        :description="dataWeService.section_05.desc"
+        :btn_text="dataWeService.section_05.btn_text"
+        :btn_link="dataWeService.section_05.btn_link"/>
     </a-card>
 
     <div class="text-right mb-3">
@@ -97,7 +97,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters('setting', ['dataWeStory'])
+    ...mapGetters('setting', ['dataWeService'])
   }
 }
 </script>

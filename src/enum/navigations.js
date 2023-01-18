@@ -16,6 +16,13 @@ export const NAVIGATIONS = [
     role: [PERMISSION.FULL_ROLE]
   },
   {
+    id: 'service',
+    title: 'NAVIGATION.service',
+    icon: 'customer-service',
+    routeName: 'service',
+    role: [PERMISSION.FULL_ROLE]
+  },
+  {
     id: 'team',
     title: 'NAVIGATION.team',
     icon: 'team',

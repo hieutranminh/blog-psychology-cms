@@ -10,7 +10,8 @@ export const state = { ...initialState }
 
 const getters = {
   dataHome: state => (state.setting && state.setting.home) || '',
-  dataWeStory: state => (state.setting && state.setting.we_story) || ''
+  dataWeStory: state => (state.setting && state.setting.we_story) || '',
+  dataWeService: state => (state.setting && state.setting.we_service) || ''
 }
 
 const mutations = {
