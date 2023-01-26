@@ -73,6 +73,8 @@
 
       <!-- FORM SECTION 01 -->
       <a-card :title="$t('TITLE.manage_section_01')" class="mb-4">
+        <a-switch  slot="extra" v-model="form.value.section_01.display" />
+
         <a-row :gutter="16">
           <a-col :span="12">
             <UploadFile :rules="form.value.section_01.thumbnail ? '' : 'required' + '|image'"
@@ -123,6 +125,8 @@
 
       <!-- FORM SECTION 02 -->
       <a-card :title="$t('TITLE.manage_section_02')" class="mb-4">
+        <a-switch  slot="extra" v-model="form.value.section_02.display" />
+
         <a-row :gutter="16">
           <a-col :span="12">
             <UploadFile :rules="form.value.section_02.thumbnail ? '' : 'required' + '|image'"
@@ -227,6 +231,7 @@ export default {
             phone: ''
           },
           section_01: {
+            display: false,
             thumbnail: '',
             title: '',
             desc: '',
@@ -234,6 +239,7 @@ export default {
             btn_link: ''
           },
           section_02: {
+            display: false,
             thumbnail: '',
             title: '',
             desc: '',

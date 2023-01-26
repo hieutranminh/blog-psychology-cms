@@ -12,49 +12,20 @@
       </router-link>
     </div>
 
-    <a-card :title="$t('TITLE.manage_section_01')" class="mb-4">
-      <HomeInfo
-          :image="dataWeStory.section_01.thumbnail"
-          :title="dataWeStory.section_01.title"
-          :description="dataWeStory.section_01.desc"
-          :btn_text="dataWeStory.section_01.btn_text"
-          :btn_link="dataWeStory.section_01.btn_link"/>
-    </a-card>
+    <a-card v-for="(value, key, index) in dataWeStory"
+            :key="index"
+            :title="$t(`TITLE.manage_${key}`)"
+            class="mb-4">
+      <a-tag slot="extra" :color="dataWeStory[key].display ? '#87d068' : 'orange'" class="font-weight-bold mr-0">
+        {{ dataWeStory[key].display ? $t('COMMON.status_enabled') : $t('COMMON.status_disabled')}}
+      </a-tag>
 
-    <a-card :title="$t('TITLE.manage_section_02')" class="mb-4">
       <HomeInfo
-          :image="dataWeStory.section_02.thumbnail"
-          :title="dataWeStory.section_02.title"
-          :description="dataWeStory.section_02.desc"
-          :btn_text="dataWeStory.section_02.btn_text"
-          :btn_link="dataWeStory.section_02.btn_link"/>
-    </a-card>
-
-    <a-card :title="$t('TITLE.manage_section_03')" class="mb-4">
-      <HomeInfo
-          :image="dataWeStory.section_03.thumbnail"
-          :title="dataWeStory.section_03.title"
-          :description="dataWeStory.section_03.desc"
-          :btn_text="dataWeStory.section_03.btn_text"
-          :btn_link="dataWeStory.section_03.btn_link"/>
-    </a-card>
-
-    <a-card :title="$t('TITLE.manage_section_04')" class="mb-4">
-      <HomeInfo
-        :image="dataWeStory.section_04.thumbnail"
-        :title="dataWeStory.section_04.title"
-        :description="dataWeStory.section_04.desc"
-        :btn_text="dataWeStory.section_04.btn_text"
-        :btn_link="dataWeStory.section_04.btn_link"/>
-    </a-card>
-
-    <a-card :title="$t('TITLE.manage_section_05')" class="mb-4">
-      <HomeInfo
-        :image="dataWeStory.section_05.thumbnail"
-        :title="dataWeStory.section_05.title"
-        :description="dataWeStory.section_05.desc"
-        :btn_text="dataWeStory.section_05.btn_text"
-        :btn_link="dataWeStory.section_05.btn_link"/>
+          :image="dataWeStory[key].thumbnail"
+          :title="dataWeStory[key].title"
+          :description="dataWeStory[key].desc"
+          :btn_text="dataWeStory[key].btn_text"
+          :btn_link="dataWeStory[key].btn_link"/>
     </a-card>
 
     <div class="text-right mb-3">

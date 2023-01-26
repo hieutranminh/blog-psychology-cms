@@ -26,28 +26,34 @@
       </div>
 
       <!-- FORM SECTION 01 -->
-      <a-card :title="$t('TITLE.manage_section_01')" class="mb-4">
+      <a-card
+        v-for="(value, key, index) in form.value"
+        :key="index"
+        :title="$t(`TITLE.manage_${key}`)"
+        class="mb-4">
+        <a-switch  slot="extra" v-model="form.value[key].display" />
+
         <a-row :gutter="16">
           <a-col :span="12">
-            <UploadFile :rules="form.value.section_01.thumbnail ? '' : 'required' + '|image'"
-                        :thumbnail="form.value.section_01.thumbnail"
+            <UploadFile :rules="form.value[key].thumbnail ? '' : 'required' + '|image'"
+                        :thumbnail="form.value[key].thumbnail"
                         :field="$t('COMMON.image')"
                         :label="$t('COMMON.image')"
-                        vid="file_01"
-                        @onFileSelect="form.value.section_01.thumbnail = $event.url"
-                        @resetThumbnail="form.value.section_01.thumbnail = ''"/>
+                        :vid="'file_'+ index"
+                        @onFileSelect="form.value[key].thumbnail = $event.url"
+                        @resetThumbnail="form.value[key].thumbnail = ''"/>
           </a-col>
 
           <a-col :span="12">
-            <InputField v-model="form.value.section_01.title"
-                        vid="title_01"
+            <InputField v-model="form.value[key].title"
+                        :vid="'title_' + index"
                         rules="required|max:150"
                         class="mb-2"
                         :field="$t('COMMON.title')"
                         :label="$t('COMMON.title')"/>
 
-            <TextAreaField v-model="form.value.section_01.desc"
-                           vid="desc_01"
+            <TextAreaField v-model="form.value[key].desc"
+                           :vid="'desc_' + index"
                            rules="max:2000"
                            class="mb-2"
                            :field="$t('COMMON.description')"
@@ -55,212 +61,16 @@
 
             <a-row :gutter="16">
               <a-col span="12">
-                <InputField v-model="form.value.section_01.btn_text"
-                            vid="btn_text_01"
+                <InputField v-model="form.value[key].btn_text"
+                            :vid="'btn_text_' + index"
                             rules="max:30"
                             class="mb-2"
                             :field="$t('COMMON.txt_button')"
                             :label="$t('COMMON.txt_button')"/>
               </a-col>
               <a-col span="12">
-                <InputField v-model="form.value.section_01.btn_link"
-                            vid="btn_link_01"
-                            class="mb-2"
-                            :field="$t('COMMON.link_button')"
-                            :label="$t('COMMON.link_button')"/>
-              </a-col>
-            </a-row>
-          </a-col>
-        </a-row>
-      </a-card>
-
-      <!-- FORM SECTION 02 -->
-      <a-card :title="$t('TITLE.manage_section_02')" class="mb-4">
-        <a-row :gutter="16">
-          <a-col :span="12">
-            <UploadFile :rules="form.value.section_02.thumbnail ? '' : 'required' + '|image'"
-                        :thumbnail="form.value.section_02.thumbnail"
-                        :field="$t('COMMON.image')"
-                        :label="$t('COMMON.image')"
-                        vid="file_02"
-                        @onFileSelect="form.value.section_02.thumbnail = $event.url"
-                        @resetThumbnail="form.value.section_02.thumbnail = ''"/>
-          </a-col>
-
-          <a-col :span="12">
-            <InputField v-model="form.value.section_02.title"
-                        vid="title_02"
-                        rules="required|max:150"
-                        class="mb-2"
-                        :field="$t('COMMON.title')"
-                        :label="$t('COMMON.title')"/>
-
-            <TextAreaField v-model="form.value.section_02.desc"
-                           vid="desc_02"
-                           rules="max:2000"
-                           class="mb-2"
-                           :field="$t('COMMON.description')"
-                           :label="$t('COMMON.description')"/>
-
-            <a-row :gutter="16">
-              <a-col span="12">
-                <InputField v-model="form.value.section_02.btn_text"
-                            vid="btn_text_02"
-                            rules="max:30"
-                            class="mb-2"
-                            :field="$t('COMMON.txt_button')"
-                            :label="$t('COMMON.txt_button')"/>
-              </a-col>
-              <a-col span="12">
-                <InputField v-model="form.value.section_02.btn_link"
-                            vid="btn_link_02"
-                            class="mb-2"
-                            :field="$t('COMMON.link_button')"
-                            :label="$t('COMMON.link_button')"/>
-              </a-col>
-            </a-row>
-          </a-col>
-        </a-row>
-      </a-card>
-
-      <!-- FORM SECTION 03 -->
-      <a-card :title="$t('TITLE.manage_section_03')" class="mb-4">
-        <a-row :gutter="16">
-          <a-col :span="12">
-            <UploadFile :rules="form.value.section_03.thumbnail ? '' : 'required' + '|image'"
-                        :thumbnail="form.value.section_03.thumbnail"
-                        :field="$t('COMMON.image')"
-                        :label="$t('COMMON.image')"
-                        vid="file_03"
-                        @onFileSelect="form.value.section_03.thumbnail = $event.url"
-                        @resetThumbnail="form.value.section_03.thumbnail = ''"/>
-          </a-col>
-
-          <a-col :span="12">
-            <InputField v-model="form.value.section_03.title"
-                        vid="title_03"
-                        rules="required|max:150"
-                        class="mb-2"
-                        :field="$t('COMMON.title')"
-                        :label="$t('COMMON.title')"/>
-
-            <TextAreaField v-model="form.value.section_03.desc"
-                           vid="desc_03"
-                           rules="max:2000"
-                           class="mb-2"
-                           :field="$t('COMMON.description')"
-                           :label="$t('COMMON.description')"/>
-
-            <a-row :gutter="16">
-              <a-col span="12">
-                <InputField v-model="form.value.section_03.btn_text"
-                            vid="btn_text_03"
-                            rules="max:30"
-                            class="mb-2"
-                            :field="$t('COMMON.txt_button')"
-                            :label="$t('COMMON.txt_button')"/>
-              </a-col>
-              <a-col span="12">
-                <InputField v-model="form.value.section_03.btn_link"
-                            vid="btn_link_03"
-                            class="mb-2"
-                            :field="$t('COMMON.link_button')"
-                            :label="$t('COMMON.link_button')"/>
-              </a-col>
-            </a-row>
-          </a-col>
-        </a-row>
-      </a-card>
-
-      <!-- FORM SECTION 04 -->
-      <a-card :title="$t('TITLE.manage_section_04')" class="mb-4">
-        <a-row :gutter="16">
-          <a-col :span="12">
-            <UploadFile :rules="form.value.section_04.thumbnail ? '' : 'required' + '|image'"
-                        :thumbnail="form.value.section_04.thumbnail"
-                        :field="$t('COMMON.image')"
-                        :label="$t('COMMON.image')"
-                        vid="file_04"
-                        @onFileSelect="form.value.section_04.thumbnail = $event.url"
-                        @resetThumbnail="form.value.section_04.thumbnail = ''"/>
-          </a-col>
-
-          <a-col :span="12">
-            <InputField v-model="form.value.section_04.title"
-                        vid="title_04"
-                        rules="required|max:150"
-                        class="mb-2"
-                        :field="$t('COMMON.title')"
-                        :label="$t('COMMON.title')"/>
-
-            <TextAreaField v-model="form.value.section_04.desc"
-                           vid="desc_04"
-                           rules="max:2000"
-                           class="mb-2"
-                           :field="$t('COMMON.description')"
-                           :label="$t('COMMON.description')"/>
-
-            <a-row :gutter="16">
-              <a-col span="12">
-                <InputField v-model="form.value.section_04.btn_text"
-                            vid="btn_text_04"
-                            rules="max:30"
-                            class="mb-2"
-                            :field="$t('COMMON.txt_button')"
-                            :label="$t('COMMON.txt_button')"/>
-              </a-col>
-              <a-col span="12">
-                <InputField v-model="form.value.section_04.btn_link"
-                            vid="btn_link_04"
-                            class="mb-2"
-                            :field="$t('COMMON.link_button')"
-                            :label="$t('COMMON.link_button')"/>
-              </a-col>
-            </a-row>
-          </a-col>
-        </a-row>
-      </a-card>
-
-      <!-- FORM SECTION 05 -->
-      <a-card :title="$t('TITLE.manage_section_05')" class="mb-4">
-        <a-row :gutter="16">
-          <a-col :span="12">
-            <UploadFile :rules="form.value.section_05.thumbnail ? '' : 'required' + '|image'"
-                        :thumbnail="form.value.section_05.thumbnail"
-                        :field="$t('COMMON.image')"
-                        :label="$t('COMMON.image')"
-                        vid="file_05"
-                        @onFileSelect="form.value.section_05.thumbnail = $event.url"
-                        @resetThumbnail="form.value.section_05.thumbnail = ''"/>
-          </a-col>
-
-          <a-col :span="12">
-            <InputField v-model="form.value.section_05.title"
-                        vid="title_05"
-                        rules="required|max:150"
-                        class="mb-2"
-                        :field="$t('COMMON.title')"
-                        :label="$t('COMMON.title')"/>
-
-            <TextAreaField v-model="form.value.section_05.desc"
-                           vid="desc_05"
-                           rules="max:2000"
-                           class="mb-2"
-                           :field="$t('COMMON.description')"
-                           :label="$t('COMMON.description')"/>
-
-            <a-row :gutter="16">
-              <a-col span="12">
-                <InputField v-model="form.value.section_05.btn_text"
-                            vid="btn_text_05"
-                            rules="max:30"
-                            class="mb-2"
-                            :field="$t('COMMON.txt_button')"
-                            :label="$t('COMMON.txt_button')"/>
-              </a-col>
-              <a-col span="12">
-                <InputField v-model="form.value.section_05.btn_link"
-                            vid="btn_link_05"
+                <InputField v-model="form.value[key].btn_link"
+                            :vid="'btn_link_' + index"
                             class="mb-2"
                             :field="$t('COMMON.link_button')"
                             :label="$t('COMMON.link_button')"/>
@@ -321,6 +131,7 @@ export default {
         key: 'we_story',
         value: {
           section_01: {
+            display: false,
             thumbnail: '',
             title: '',
             desc: '',
@@ -328,6 +139,7 @@ export default {
             btn_link: ''
           },
           section_02: {
+            display: false,
             thumbnail: '',
             title: '',
             desc: '',
@@ -335,6 +147,7 @@ export default {
             btn_link: ''
           },
           section_03: {
+            display: false,
             thumbnail: '',
             title: '',
             desc: '',
@@ -342,6 +155,7 @@ export default {
             btn_link: ''
           },
           section_04: {
+            display: false,
             thumbnail: '',
             title: '',
             desc: '',
@@ -349,6 +163,7 @@ export default {
             btn_link: ''
           },
           section_05: {
+            display: false,
             thumbnail: '',
             title: '',
             desc: '',

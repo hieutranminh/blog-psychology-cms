@@ -22,6 +22,10 @@
     </a-card>
 
     <a-card :title="$t('TITLE.manage_section_01')" class="mb-4">
+      <a-tag slot="extra" :color="dataHome.section_01.display ? '#87d068' : 'orange'" class="font-weight-bold mr-0">
+        {{ dataHome.section_01.display ? $t('COMMON.status_enabled') : $t('COMMON.status_disabled')}}
+      </a-tag>
+
       <HomeInfo
           :image="dataHome.section_01.thumbnail"
           :title="dataHome.section_01.title"
@@ -31,6 +35,10 @@
     </a-card>
 
     <a-card :title="$t('TITLE.manage_section_02')" class="mb-4">
+      <a-tag slot="extra" :color="dataHome.section_02.display ? '#87d068' : 'orange'" class="font-weight-bold mr-0">
+        {{ dataHome.section_02.display ? $t('COMMON.status_enabled') : $t('COMMON.status_disabled')}}
+      </a-tag>
+
       <HomeInfo
           :image="dataHome.section_02.thumbnail"
           :title="dataHome.section_02.title"

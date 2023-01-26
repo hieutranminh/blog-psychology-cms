@@ -12,49 +12,21 @@
       </router-link>
     </div>
 
-    <a-card :title="$t('TITLE.manage_section_01')" class="mb-4">
-      <HomeInfo
-          :image="dataWeService.section_01.thumbnail"
-          :title="dataWeService.section_01.title"
-          :description="dataWeService.section_01.desc"
-          :btn_text="dataWeService.section_01.btn_text"
-          :btn_link="dataWeService.section_01.btn_link"/>
-    </a-card>
+    <a-card
+      v-for="(value, key, index) in dataWeService"
+      :key="index"
+      :title="$t(`TITLE.manage_${key}`)"
+      class="mb-4">
+      <a-tag slot="extra" :color="dataWeService[key].display ? '#87d068' : 'orange'" class="font-weight-bold mr-0">
+        {{ dataWeService[key].display ? $t('COMMON.status_enabled') : $t('COMMON.status_disabled')}}
+      </a-tag>
 
-    <a-card :title="$t('TITLE.manage_section_02')" class="mb-4">
       <HomeInfo
-          :image="dataWeService.section_02.thumbnail"
-          :title="dataWeService.section_02.title"
-          :description="dataWeService.section_02.desc"
-          :btn_text="dataWeService.section_02.btn_text"
-          :btn_link="dataWeService.section_02.btn_link"/>
-    </a-card>
-
-    <a-card :title="$t('TITLE.manage_section_03')" class="mb-4">
-      <HomeInfo
-          :image="dataWeService.section_03.thumbnail"
-          :title="dataWeService.section_03.title"
-          :description="dataWeService.section_03.desc"
-          :btn_text="dataWeService.section_03.btn_text"
-          :btn_link="dataWeService.section_03.btn_link"/>
-    </a-card>
-
-    <a-card :title="$t('TITLE.manage_section_04')" class="mb-4">
-      <HomeInfo
-        :image="dataWeService.section_04.thumbnail"
-        :title="dataWeService.section_04.title"
-        :description="dataWeService.section_04.desc"
-        :btn_text="dataWeService.section_04.btn_text"
-        :btn_link="dataWeService.section_04.btn_link"/>
-    </a-card>
-
-    <a-card :title="$t('TITLE.manage_section_05')" class="mb-4">
-      <HomeInfo
-        :image="dataWeService.section_05.thumbnail"
-        :title="dataWeService.section_05.title"
-        :description="dataWeService.section_05.desc"
-        :btn_text="dataWeService.section_05.btn_text"
-        :btn_link="dataWeService.section_05.btn_link"/>
+          :image="dataWeService[key].thumbnail"
+          :title="dataWeService[key].title"
+          :description="dataWeService[key].desc"
+          :btn_text="dataWeService[key].btn_text"
+          :btn_link="dataWeService[key].btn_link"/>
     </a-card>
 
     <div class="text-right mb-3">

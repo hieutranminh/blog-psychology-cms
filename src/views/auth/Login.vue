@@ -65,8 +65,8 @@ export default {
   data () {
     return {
       form: {
-        email: 'admin@admin.com',
-        password: 'password'
+        email: '',
+        password: ''
       },
       isSubmit: false
     }
