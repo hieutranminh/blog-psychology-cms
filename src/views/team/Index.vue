@@ -38,6 +38,11 @@
       </template>
 
       <!--date-->
+      <template slot="position"
+                slot-scope="text">
+        <span v-html="text"/>
+      </template>
+      <!--date-->
       <template slot="date"
                 slot-scope="record">
         <div class="mb-1">
@@ -167,7 +172,8 @@ export default {
         },
         {
           title: this.$t('COMMON.position'),
-          dataIndex: 'description'
+          dataIndex: 'description',
+          scopedSlots: { customRender: 'position' }
         },
         {
           title: this.$t('COMMON.date'),

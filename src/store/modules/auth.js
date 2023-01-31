@@ -22,7 +22,7 @@ const getters = {
 const mutations = {
   SET_TOKEN (state, payload) {
     state.token = payload.access_token
-    Cookie.set('bearer_cms_token', payload.access_token, { expires: payload.expires_in, secure: true })
+    Cookie.set('bearer_cms_token', payload.access_token, { expires: +payload.expires_in, secure: true })
   },
   SET_LOGOUT (state) {
     state.token = null

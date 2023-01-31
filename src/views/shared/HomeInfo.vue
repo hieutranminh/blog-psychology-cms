@@ -12,7 +12,7 @@
       </div>
       <div v-if="title" class="field mb-2">
         <label v-text="$t('COMMON.title')+':'" class="mb-0"/>
-        <p v-text="title"/>
+        <p v-html="title"/>
       </div>
       <div v-if="description" class="field mb-2">
         <label v-text="$t('COMMON.description')+':'" class="mb-0"/>
