@@ -23,6 +23,7 @@ import {
   Pagination,
   Card,
   Switch,
+  Rate,
   Tooltip
 } from 'ant-design-vue'
 
@@ -47,6 +48,7 @@ Vue.use(Radio)
 Vue.use(Pagination)
 Vue.use(Card)
 Vue.use(Switch)
+Vue.use(Rate)
 Vue.use(Tooltip)
 Vue.prototype.$notification = notification
 Vue.prototype.$message = message

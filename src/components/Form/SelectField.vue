@@ -31,6 +31,7 @@
       >
         <template v-for="(option, index) in options">
           <a-select-option
+            :class="classOption"
             :key="index"
             :disabled="disabledOption === +(option.id) || disabledOption === option.name"
             :value="option.value">
@@ -71,6 +72,7 @@ export default {
     placeholder: { type: String, default: '' },
     classSelect: { type: String, default: '' },
     classContainer: { type: String, default: '' },
+    classOption: { type: String, default: '' },
     // All types: default, multiple, tags
     mode: { type: String, default: 'default' },
     disabledSelect: { type: Boolean, default: false },

@@ -36,6 +36,7 @@
   },
   "NAVIGATION": {
     "home": "Quản lý trang chủ",
+    "testimonials": "Đánh giá của khách hàng",
     "story": "Câu chuyện của chúng tôi",
     "service": "Quản lý dịch vụ",
     "team": "Quản lý đội ngũ",
@@ -109,6 +110,13 @@
   "HOME": {
     "title": "Trang chủ",
     "title_edit": "Chỉnh sửa trang chủ"
+  },
+  "TESTIMONIALS": {
+    "title": "Danh sách các bài đánh giá",
+    "title_create": "Tạo bài đánh giá",
+    "title_edit": "Chỉnh sửa bài đánh giá",
+    "name": "Tên khách hàng",
+    "rate": "Điểm đánh giá"
   },
   "STORY": {
     "title": "Quản lý trang câu chuyện của chúng tôi",

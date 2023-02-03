@@ -9,6 +9,13 @@ export const NAVIGATIONS = [
     role: [PERMISSION.FULL_ROLE]
   },
   {
+    id: 'testimonials',
+    title: 'NAVIGATION.testimonials',
+    icon: 'star',
+    routeName: 'testimonials',
+    role: [PERMISSION.FULL_ROLE]
+  },
+  {
     id: 'story',
     title: 'NAVIGATION.story',
     icon: 'bulb',

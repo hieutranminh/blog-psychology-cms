@@ -208,3 +208,12 @@ p .required{
   color: #1890ff;
   font-weight: 600;
 }
+ul {
+  li.rating {
+    color: #f0ad4e;
+    &:nth-child(1),
+    &:nth-child(2){
+      color: inherit;
+    }
+  }
+}
