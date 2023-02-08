@@ -40,6 +40,7 @@
              alt="pic"
              loading="lazy"
              style="aspect-ratio: 4/3;">
+        <span class="mark_popular">{{record.additional.is_popular ? $t("POSTS.mark_popular") : ''}}</span>
       </template>
 
       <!--date-->
@@ -153,7 +154,7 @@ export default {
       params: {
         page: 1,
         perPage: 10,
-        fields: 'id,images,title,description,type,created_at,updated_at,is_published,slug',
+        fields: 'id,images,title,description,type,created_at,updated_at,is_published,slug,additional',
         'filters[type]': 'news,research-development,single'
       },
       OBJECT_POST_TYPE,
@@ -166,7 +167,7 @@ export default {
     const params = {
       page: 1,
       perPage: 10,
-      fields: 'id,images,title,description,type,created_at,updated_at,is_published,slug',
+      fields: 'id,images,title,description,type,created_at,updated_at,is_published,slug,additional',
       'filters[type]': 'news,research-development,single'
     }
     store.dispatch('posts/getList', params).then(_ => next())

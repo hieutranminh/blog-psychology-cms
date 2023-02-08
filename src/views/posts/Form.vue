@@ -56,7 +56,18 @@
                      :placeholder="$t('COMMON.chose_option')"
                      :field="$t('COMMON.type_post')"
                      :label="$t('COMMON.type_post')"
-                     :options="OPTION_POST_TYPE"/>
+                     :options="OPTION_POST_TYPE"
+                     @change="form.additional.is_popular = false"/>
+
+        <div v-if="form.type === 'news'" class="field mb-3">
+          <label
+            class="mb-1"
+            v-text="$t('POSTS.popular')"/>
+
+          <div>
+            <a-switch v-model="form.additional.is_popular" />
+          </div>
+        </div>
 
         <InputField v-model="form.title"
                     vid="title"
@@ -136,7 +147,10 @@ export default {
         content: '',
         thumbnail: '',
         fileIds: [],
-        is_published: 1
+        is_published: 1,
+        additional: {
+          is_popular: false
+        }
       },
       OPTION_POST_TYPE
     }
@@ -151,6 +165,7 @@ export default {
       this.form.thumbnail = this.detail.images[0].url
       this.form.fileIds = [this.detail.images[0].id]
       this.form.is_published = this.detail.is_published ? 1 : 0
+      this.form.additional.is_popular = this.detail.additional.is_popular
     }
   },
 

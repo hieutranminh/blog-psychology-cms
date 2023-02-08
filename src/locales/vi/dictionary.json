@@ -139,7 +139,9 @@
   "POSTS": {
     "title": "Quản lý bài vết",
     "title_create": "Tạo mới bài viết",
-    "title_edit": "Chỉnh sửa bài viết"
+    "title_edit": "Chỉnh sửa bài viết",
+    "popular": "Đặt làm bài viết phổ biến",
+    "mark_popular": "Phổ biến"
   },
   "CONTACT": {
     "title": "Quản lý liên hệ tư vấn",

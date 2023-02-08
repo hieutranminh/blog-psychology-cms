@@ -12,7 +12,7 @@ export default {
     store.dispatch('posts/getPostByID', {
       id: to.params.id,
       params: {
-        fields: 'id,images,title,description,content,is_published,type'
+        fields: 'id,images,title,description,content,is_published,type,additional'
       }
     }).then(_ => next())
   }
