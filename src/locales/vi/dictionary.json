@@ -129,7 +129,8 @@
   "TEAM": {
     "title": "Quản lý đội ngũ",
     "title_create": "Tạo mới thành viên đội ngũ",
-    "title_edit": "Chỉnh sửa thông tin đội ngũ"
+    "title_edit": "Chỉnh sửa thông tin đội ngũ",
+    "pick_display_home": "Hiển thị ngoài trang chủ"
   },
   "KNOWLEDGE": {
     "title": "Quản lý kiến thức y khoa",

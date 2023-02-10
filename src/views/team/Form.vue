@@ -5,38 +5,50 @@
         tag="form"
         @submit.prevent="validateBeforeSubmit()">
       <!-- ACTIONS -->
-      <div class="text-right mb-3">
-        <!-- Status -->
-        <div style="float: left; font-weight: bold">
-          <label class="font-weight-bold mb-0 mr-3"
-                 v-text="$t('COMMON.status') + ':'"/>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="d-flex align-items-center">
+          <!-- Status -->
+          <div>
+            <label class="font-weight-bold mb-0 mr-3"
+                   v-text="$t('COMMON.status') + ':'"/>
 
-          <a-radio-group v-model="form.is_published">
-            <a-radio :value="1">
-              {{$t('COMMON.enabled')}}
-            </a-radio>
-            <a-radio :value="0">
-              {{$t('COMMON.disabled')}}
-            </a-radio>
-          </a-radio-group>
+            <a-radio-group v-model="form.is_published">
+              <a-radio :value="1">
+                {{$t('COMMON.enabled')}}
+              </a-radio>
+              <a-radio :value="0">
+                {{$t('COMMON.disabled')}}
+              </a-radio>
+            </a-radio-group>
+          </div>
+
+          <!-- Pick display home -->
+          <div class="ml-5">
+            <label class="font-weight-bold mb-0 mr-3"
+                   v-text="$t('TEAM.pick_display_home') + ':'"/>
+
+            <a-switch v-model="form.additional.is_home_page" />
+          </div>
         </div>
 
-        <!-- Back -->
-        <a-button
+        <div>
+          <!-- Back -->
+          <a-button
             @click.prevent="$router.go(-1)"
             type="default"
             class="font-weight-bold"
             icon="rollback">
-          {{$t('BUTTON.back')}}
-        </a-button>
+            {{$t('BUTTON.back')}}
+          </a-button>
 
-        <!-- Submit -->
-        <a-button type="primary"
-                  html-type="submit"
-                  :icon="$route.params.id ? 'edit' : 'plus'"
-                  class="ml-2 font-weight-bold">
-          {{ $route.params.id ? $t('BUTTON.update') : $t('BUTTON.add') }}
-        </a-button>
+          <!-- Submit -->
+          <a-button type="primary"
+                    html-type="submit"
+                    :icon="$route.params.id ? 'edit' : 'plus'"
+                    class="ml-2 font-weight-bold">
+            {{ $route.params.id ? $t('BUTTON.update') : $t('BUTTON.add') }}
+          </a-button>
+        </div>
       </div>
 
       <!-- CONTAINER -->
@@ -275,6 +287,7 @@ export default {
         thumbnail: '',
         is_published: 1,
         additional: {
+          is_home_page: false,
           profile: {
             care_id: {
               title: '',
