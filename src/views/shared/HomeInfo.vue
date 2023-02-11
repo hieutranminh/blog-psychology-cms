@@ -12,7 +12,7 @@
       </div>
       <div v-if="title" class="field mb-2">
         <label v-text="$t('COMMON.title')+':'" class="mb-0"/>
-        <p v-html="title"/>
+        <p v-html="title" :class="'text-'+title_align"/>
       </div>
       <div v-if="description" class="field mb-2">
         <label v-text="$t('COMMON.description')+':'" class="mb-0"/>
@@ -44,6 +44,7 @@ export default {
     image: { type: String, default: '' },
     big_title: { type: String, default: '' },
     title: { type: String, default: '' },
+    title_align: { type: String, default: '' },
     description: { type: String, default: '' },
     btn_text: { type: String, default: '' },
     btn_link: { type: String, default: '' },

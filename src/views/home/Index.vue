@@ -29,6 +29,7 @@
       <HomeInfo
           :image="dataHome.section_01.thumbnail"
           :title="dataHome.section_01.title"
+          :title_align="dataHome.section_01.title_align"
           :description="dataHome.section_01.desc"
           :btn_text="dataHome.section_01.btn_text"
           :btn_link="dataHome.section_01.btn_link"/>
@@ -42,6 +43,7 @@
       <HomeInfo
           :image="dataHome.section_02.thumbnail"
           :title="dataHome.section_02.title"
+          :title_align="dataHome.section_02.title_align"
           :description="dataHome.section_02.desc"
           :btn_text="dataHome.section_02.btn_text"
           :btn_link="dataHome.section_02.btn_link"/>

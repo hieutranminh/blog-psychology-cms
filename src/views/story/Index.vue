@@ -23,6 +23,7 @@
       <HomeInfo
           :image="dataWeStory[key].thumbnail"
           :title="dataWeStory[key].title"
+          :title_align="dataWeStory[key].title_align"
           :description="dataWeStory[key].desc"
           :btn_text="dataWeStory[key].btn_text"
           :btn_link="dataWeStory[key].btn_link"/>

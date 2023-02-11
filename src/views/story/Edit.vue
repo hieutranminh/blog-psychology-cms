@@ -52,6 +52,20 @@
                         :field="$t('COMMON.title')"
                         :label="$t('COMMON.title')"/>
 
+            <a-radio-group v-model="form.value[key].title_align"
+                           class="mb-2"
+                           default-value="left">
+              <a-radio value="left">
+                {{$t('COMMON.align_left')}}
+              </a-radio>
+              <a-radio value="center">
+                {{$t('COMMON.align_center')}}
+              </a-radio>
+              <a-radio value="right">
+                {{$t('COMMON.align_right')}}
+              </a-radio>
+            </a-radio-group>
+
             <TextAreaField v-model="form.value[key].desc"
                            :vid="'desc_' + index"
                            rules="max:2000"
@@ -134,6 +148,7 @@ export default {
             display: false,
             thumbnail: '',
             title: '',
+            title_align: '',
             desc: '',
             btn_text: '',
             btn_link: ''
@@ -142,6 +157,7 @@ export default {
             display: false,
             thumbnail: '',
             title: '',
+            title_align: '',
             desc: '',
             btn_text: '',
             btn_link: ''
@@ -150,6 +166,7 @@ export default {
             display: false,
             thumbnail: '',
             title: '',
+            title_align: '',
             desc: '',
             btn_text: '',
             btn_link: ''
@@ -158,6 +175,7 @@ export default {
             display: false,
             thumbnail: '',
             title: '',
+            title_align: '',
             desc: '',
             btn_text: '',
             btn_link: ''
@@ -166,6 +184,7 @@ export default {
             display: false,
             thumbnail: '',
             title: '',
+            title_align: '',
             desc: '',
             btn_text: '',
             btn_link: ''

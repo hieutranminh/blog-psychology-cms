@@ -57,8 +57,14 @@
 
       <!--status-->
       <template slot="status"
-                slot-scope="text">
-        <a-tag :color="text ? '#87d068' : '#BBBBBB'" class="font-weight-bold mr-0">
+                slot-scope="text, record">
+        <a-tag v-if="'is_home_page' in record.additional && record.additional.is_home_page"
+               color="red"
+               class="mb-2">
+          {{ $t('TEAM.status_display_home') }}
+        </a-tag>
+        <a-tag :color="text ? '#87d068' : '#BBBBBB'"
+               class="font-weight-bold mr-0">
           {{ text ? $t('COMMON.status_enabled') : $t('COMMON.status_disabled')}}
         </a-tag>
       </template>

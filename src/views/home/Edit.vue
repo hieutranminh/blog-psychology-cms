@@ -95,6 +95,20 @@
                         :field="$t('COMMON.title')"
                         :label="$t('COMMON.title')"/>
 
+            <a-radio-group v-model="form.value.section_01.title_align"
+                           class="mb-2"
+                           default-value="left">
+              <a-radio value="left">
+                {{$t('COMMON.align_left')}}
+              </a-radio>
+              <a-radio value="center">
+                {{$t('COMMON.align_center')}}
+              </a-radio>
+              <a-radio value="right">
+                {{$t('COMMON.align_right')}}
+              </a-radio>
+            </a-radio-group>
+
             <TextAreaField v-model="form.value.section_01.desc"
                            vid="desc_01"
                            rules="required|max:2000"
@@ -146,6 +160,20 @@
                         class="mb-2"
                         :field="$t('COMMON.title')"
                         :label="$t('COMMON.title')"/>
+
+            <a-radio-group v-model="form.value.section_02.title_align"
+                           class="mb-2"
+                           default-value="left">
+              <a-radio value="left">
+                {{$t('COMMON.align_left')}}
+              </a-radio>
+              <a-radio value="center">
+                {{$t('COMMON.align_center')}}
+              </a-radio>
+              <a-radio value="right">
+                {{$t('COMMON.align_right')}}
+              </a-radio>
+            </a-radio-group>
 
             <TextAreaField v-model="form.value.section_02.desc"
                            vid="desc_02"
@@ -234,6 +262,7 @@ export default {
             display: false,
             thumbnail: '',
             title: '',
+            title_align: '',
             desc: '',
             btn_text: '',
             btn_link: ''
@@ -242,6 +271,7 @@ export default {
             display: false,
             thumbnail: '',
             title: '',
+            title_align: '',
             desc: '',
             btn_text: '',
             btn_link: ''
