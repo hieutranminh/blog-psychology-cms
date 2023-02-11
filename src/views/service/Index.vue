@@ -24,6 +24,7 @@
       <HomeInfo
           :image="dataWeService[key].thumbnail"
           :title="dataWeService[key].title"
+          :title_align="dataWeService[key].title_align"
           :description="dataWeService[key].desc"
           :btn_text="dataWeService[key].btn_text"
           :btn_link="dataWeService[key].btn_link"/>
