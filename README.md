@@ -1,6 +1,6 @@
 # blog-psychology-cms
 
-## Project setup
+## Project setuppp
 ```
 npm install
 ```
