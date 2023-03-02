@@ -63,13 +63,16 @@ export default {
         height: 500,
         width: '100%',
         deprecation_warnings: false,
-        plugins: 'print preview paste code fullscreen image link table hr pagebreak anchor toc insertdatetime lists wordcount',
+        plugins: 'print preview paste code fullscreen image media link table hr pagebreak anchor toc insertdatetime lists wordcount',
         menubar: 'file edit view insert format tools table tc help',
-        toolbar: 'undo redo | image table | fontsize fontselect fontsizeselect | formatselect | lineheight bold italic forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
+        toolbar: 'undo redo | image media table | fontsize fontselect fontsizeselect | formatselect | lineheight bold italic forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
         fontsize_formats: '8pt 9pt 10pt 11pt 12pt 14pt 16pt 18pt 24pt 36pt 48pt 60pt',
-        file_picker_types: 'image',
+        file_picker_types: 'image media',
         images_file_types: 'jpeg,jpg,png,gif,webp',
         images_upload_handler: this.handleUploadImage,
+        // file_picker_callback: function (cb, value, meta) {
+        //   console.log('abc')
+        // },
         language: 'en'
       }
     }
