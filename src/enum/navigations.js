@@ -58,6 +58,13 @@ export const NAVIGATIONS = [
     role: [PERMISSION.FULL_ROLE]
   },
   {
+    id: 'tag',
+    title: 'NAVIGATION.tag',
+    icon: 'tags',
+    routeName: 'tag',
+    role: [PERMISSION.FULL_ROLE]
+  },
+  {
     id: 'admin',
     title: 'NAVIGATION.admin',
     icon: 'user',

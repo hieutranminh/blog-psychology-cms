@@ -65,6 +65,14 @@
                     :field="$t('COMMON.title')"
                     :label="$t('COMMON.title')"/>
 
+        <SelectFieldDynamic v-model="form.tags"
+                            vid="tag"
+                            class="mb-3"
+                            mode="multiple"
+                            :field="$t('TAG.name')"
+                            :label="$t('TAG.name')"
+                            :options="this.optionTags"/>
+
         <TextAreaField v-model="form.description"
                        vid="description"
                        rules="required|max:500"
@@ -112,6 +120,7 @@ import EditorTinyMCE from '@/components/Form/EditorTinyMCE'
 import SelectField from '@/components/Form/SelectField'
 import FormMixin from '@/mixins/form.mixin'
 import { OPTION_POST_TYPE_KNOWLEDGE } from '@/enum/option'
+import SelectFieldDynamic from '@/components/Form/SelectFieldDynamic'
 
 export default {
   name: 'Form',
@@ -119,6 +128,7 @@ export default {
   mixins: [FormMixin],
 
   components: {
+    SelectFieldDynamic,
     SelectField,
     EditorTinyMCE,
     InputField,
@@ -134,6 +144,7 @@ export default {
         type: 'medical-knowledge',
         category: '',
         content: '',
+        tags: [],
         thumbnail: '',
         fileIds: [],
         is_published: 1
@@ -149,6 +160,7 @@ export default {
       this.form.type = 'medical-knowledge'
       this.form.category = this.detail.categories[0].id
       this.form.content = this.detail.content
+      this.form.tags = this.detail.tags.map(tag => tag.id)
       this.form.thumbnail = this.detail.images[0].url
       this.form.fileIds = [this.detail.images[0].id]
       this.form.is_published = this.detail.is_published ? 1 : 0
@@ -156,7 +168,16 @@ export default {
   },
 
   computed: {
-    ...mapState('postKnowledge', ['detail'])
+    ...mapState('postKnowledge', ['detail']),
+    ...mapState('tag', ['list']),
+
+    optionTags () {
+      return {
+        list: this.list,
+        id: 'id',
+        name: 'title'
+      }
+    }
   },
 
   methods: {

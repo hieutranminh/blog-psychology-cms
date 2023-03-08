@@ -7,15 +7,26 @@ import store from '@/store'
 import Form from '@/views/knowledge/Form'
 export default {
   name: 'Edit',
+
   components: { Form },
+
   beforeRouteEnter (to, from, next) {
-    store.dispatch('postKnowledge/getKnowledgeByID', {
+    const paramsDetail = {
       id: to.params.id,
       params: {
-        include: 'categories',
-        fields: 'id,images,title,description,content,is_published'
+        include: 'categories,tags',
+        fields: 'id,images,title,description,content,tags,is_published'
       }
-    }).then(_ => next())
+    }
+    const paramsTag = {
+      perPage: 0,
+      fields: 'id,title',
+      'filters[type]': 'tag'
+    }
+    return Promise.allSettled([
+      store.dispatch('postKnowledge/getKnowledgeByID', paramsDetail),
+      store.dispatch('tag/getList', paramsTag)
+    ]).then(_ => next())
   }
 }
 </script>

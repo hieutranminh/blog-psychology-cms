@@ -46,6 +46,7 @@
     "knowledge": "Quản lý kiến thức y khoa",
     "posts": "Quản lý bài viết",
     "contact": "Quản lý liên hệ tư vấn",
+    "tag": "Quản lý nhãn (#tag)",
     "admin": "Quản trị viên"
   },
   "NOTIFICATION": {
@@ -159,5 +160,11 @@
   "SETTING": {
     "title": "Quản lý cài đặt",
     "title_edit": "Chỉnh sửa cài đặt"
+  },
+  "TAG": {
+    "title": "Quản lý nhãn",
+    "title_create": "Tạo mới nhãn",
+    "title_edit": "Chỉnh sửa nhãn",
+    "name": "Nhãn (#tag)"
   }
 }

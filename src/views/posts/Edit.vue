@@ -7,14 +7,26 @@ import store from '@/store'
 import Form from '@/views/posts/Form'
 export default {
   name: 'Edit',
+
   components: { Form },
+
   beforeRouteEnter (to, from, next) {
-    store.dispatch('posts/getPostByID', {
+    const paramsDetail = {
       id: to.params.id,
       params: {
-        fields: 'id,images,title,description,content,is_published,type,additional'
+        fields: 'id,images,title,description,content,tags,is_published,type,additional',
+        include: 'tags'
       }
-    }).then(_ => next())
+    }
+    const paramsTag = {
+      perPage: 0,
+      fields: 'id,title',
+      'filters[type]': 'tag'
+    }
+    return Promise.allSettled([
+      store.dispatch('posts/getPostByID', paramsDetail),
+      store.dispatch('tag/getList', paramsTag)
+    ]).then(_ => next())
   }
 }
 </script>

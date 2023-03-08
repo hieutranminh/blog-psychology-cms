@@ -10,6 +10,7 @@ import postTeam from './modules/posts-team'
 import postKnowledge from './modules/posts-knowledge'
 import postTestimonial from './modules/posts-testimonial'
 import contact from './modules/contact'
+import tag from './modules/tag'
 import admin from './modules/admin'
 
 const modules = {
@@ -21,6 +22,7 @@ const modules = {
   postKnowledge,
   postTestimonial,
   contact,
+  tag,
   admin
 }
 

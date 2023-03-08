@@ -12,6 +12,7 @@ import TeamRoute from './modules/team'
 import KnowledgeRoute from './modules/knowledge'
 import PostsRoute from './modules/posts'
 import ContactRoute from './modules/contact'
+import TagRoute from './modules/tag'
 import AdminRoute from './modules/admin'
 import ErrorsRoute from './modules/errors'
 
@@ -45,6 +46,7 @@ const routes = [
       ...KnowledgeRoute,
       ...PostsRoute,
       ...ContactRoute,
+      ...TagRoute,
       ...AdminRoute,
       ...ErrorsRoute
     ],
