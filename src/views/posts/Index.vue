@@ -43,6 +43,13 @@
         <span class="mark_popular">{{record.additional.is_popular ? $t("POSTS.mark_popular") : ''}}</span>
       </template>
 
+      <!--title-->
+      <template slot="title_record"
+                slot-scope="record">
+        <p class="mb-1">{{ record.title }}</p>
+        <span v-if="record.additional && 'author' in record.additional"><b>{{ $t('COMMON.author') }} :</b> {{record.additional.author}}</span>
+      </template>
+
       <!--date-->
       <template slot="date"
                 slot-scope="record">
@@ -185,8 +192,8 @@ export default {
           width: '100px'
         },
         {
-          title: this.$t('COMMON.title'),
-          dataIndex: 'title',
+          title: this.$t('COMMON.title') + ' / ' + this.$t('COMMON.author'),
+          scopedSlots: { customRender: 'title_record' },
           width: '250px'
         },
         {

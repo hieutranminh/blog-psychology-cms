@@ -50,28 +50,45 @@
                     @onFileSelect="onUploadImage($event)"
                     @resetThumbnail="form.thumbnail = ''"/>
 
-        <SelectField v-model="form.category"
-                     class="mb-3"
-                     rules="required"
-                     :placeholder="$t('COMMON.chose_option')"
-                     :field="$t('COMMON.type_category')"
-                     :label="$t('COMMON.type_category')"
-                     :options="OPTION_POST_TYPE_KNOWLEDGE"/>
+        <a-row :gutter="16">
+          <a-col :span="12">
+            <InputField v-model="form.title"
+                        vid="title"
+                        rules="required|max:200"
+                        class="mb-3"
+                        :field="$t('COMMON.title')"
+                        :label="$t('COMMON.title')"/>
+          </a-col>
 
-        <InputField v-model="form.title"
-                    vid="title"
-                    rules="required|max:200"
-                    class="mb-3"
-                    :field="$t('COMMON.title')"
-                    :label="$t('COMMON.title')"/>
+          <a-col :span="12">
+            <InputField v-model="form.additional.author"
+                        vid="author"
+                        rules="required|max:200"
+                        class="mb-3"
+                        :field="$t('COMMON.author')"
+                        :label="$t('COMMON.author')"/>
+          </a-col>
 
-        <SelectFieldDynamic v-model="form.tags"
-                            vid="tag"
-                            class="mb-3"
-                            mode="multiple"
-                            :field="$t('TAG.name')"
-                            :label="$t('TAG.name')"
-                            :options="this.optionTags"/>
+          <a-col :span="12">
+            <SelectField v-model="form.category"
+                         class="mb-3"
+                         rules="required"
+                         :placeholder="$t('COMMON.chose_option')"
+                         :field="$t('COMMON.type_category')"
+                         :label="$t('COMMON.type_category')"
+                         :options="OPTION_POST_TYPE_KNOWLEDGE"/>
+          </a-col>
+
+          <a-col :span="12">
+            <SelectFieldDynamic v-model="form.tags"
+                                vid="tag"
+                                class="mb-3"
+                                mode="multiple"
+                                :field="$t('TAG.name')"
+                                :label="$t('TAG.name')"
+                                :options="this.optionTags"/>
+          </a-col>
+        </a-row>
 
         <TextAreaField v-model="form.description"
                        vid="description"
@@ -147,7 +164,10 @@ export default {
         tags: [],
         thumbnail: '',
         fileIds: [],
-        is_published: 1
+        is_published: 1,
+        additional: {
+          author: ''
+        }
       },
       OPTION_POST_TYPE_KNOWLEDGE
     }
@@ -164,6 +184,7 @@ export default {
       this.form.thumbnail = this.detail.images[0].url
       this.form.fileIds = [this.detail.images[0].id]
       this.form.is_published = this.detail.is_published ? 1 : 0
+      this.form.additional.author = this.detail.additional.author
     }
   },
 

@@ -42,6 +42,13 @@
              style="aspect-ratio: 4/3;">
       </template>
 
+      <!--title-->
+      <template slot="title_record"
+                slot-scope="record">
+        <p class="mb-1">{{ record.title }}</p>
+        <span v-if="record.additional && 'author' in record.additional"><b>{{ $t('COMMON.author') }} :</b> {{record.additional.author}}</span>
+      </template>
+
       <!--date-->
       <template slot="date"
                 slot-scope="record">
@@ -147,7 +154,7 @@ export default {
         page: 1,
         perPage: 10,
         include: 'categories',
-        fields: 'id,images,title,description,created_at,updated_at,is_published,slug',
+        fields: 'id,images,title,description,created_at,updated_at,is_published,slug,additional',
         'filters[type]': 'medical-knowledge'
       },
       URL_CLIENT: process.env.VUE_APP_URL_CLIENT,
@@ -160,7 +167,7 @@ export default {
       page: 1,
       perPage: 10,
       include: 'categories',
-      fields: 'id,images,title,description,created_at,updated_at,is_published,slug',
+      fields: 'id,images,title,description,created_at,updated_at,is_published,slug,additional',
       'filters[type]': 'medical-knowledge'
     }
     store.dispatch('postKnowledge/getList', params).then(_ => next())
@@ -178,8 +185,8 @@ export default {
           width: '100px'
         },
         {
-          title: this.$t('COMMON.title'),
-          dataIndex: 'title',
+          title: this.$t('COMMON.title') + ' / ' + this.$t('COMMON.author'),
+          scopedSlots: { customRender: 'title_record' },
           width: '250px'
         },
         {

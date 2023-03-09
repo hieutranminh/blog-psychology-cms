@@ -15,7 +15,7 @@ export default {
       id: to.params.id,
       params: {
         include: 'categories,tags',
-        fields: 'id,images,title,description,content,tags,is_published'
+        fields: 'id,images,title,description,content,tags,is_published,additional'
       }
     }
     const paramsTag = {

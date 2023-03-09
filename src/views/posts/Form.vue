@@ -50,39 +50,56 @@
                     @onFileSelect="onUploadImage($event)"
                     @resetThumbnail="form.thumbnail = ''"/>
 
-        <SelectField v-model="form.type"
-                     class="mb-3"
-                     rules="required"
-                     :placeholder="$t('COMMON.chose_option')"
-                     :field="$t('COMMON.type_post')"
-                     :label="$t('COMMON.type_post')"
-                     :options="OPTION_POST_TYPE"
-                     @change="form.additional.is_popular = false"/>
+        <a-row :gutter="16">
+          <a-col :span="12">
+            <InputField v-model="form.title"
+                        vid="title"
+                        rules="required|max:200"
+                        class="mb-3"
+                        :field="$t('COMMON.title')"
+                        :label="$t('COMMON.title')"/>
+          </a-col>
 
-        <div v-if="form.type === 'news'" class="field mb-3">
-          <label
-            class="mb-1"
-            v-text="$t('POSTS.popular')"/>
+          <a-col :span="12">
+            <InputField v-model="form.additional.author"
+                        vid="author"
+                        rules="required|max:200"
+                        class="mb-3"
+                        :field="$t('COMMON.author')"
+                        :label="$t('COMMON.author')"/>
+          </a-col>
 
-          <div>
-            <a-switch v-model="form.additional.is_popular" />
-          </div>
-        </div>
+          <a-col :span="12">
+            <SelectField v-model="form.type"
+                         class="mb-3"
+                         rules="required"
+                         :placeholder="$t('COMMON.chose_option')"
+                         :field="$t('COMMON.type_post')"
+                         :label="$t('COMMON.type_post')"
+                         :options="OPTION_POST_TYPE"
+                         @change="form.additional.is_popular = false"/>
 
-        <InputField v-model="form.title"
-                    vid="title"
-                    rules="required|max:200"
-                    class="mb-3"
-                    :field="$t('COMMON.title')"
-                    :label="$t('COMMON.title')"/>
+            <div v-if="form.type === 'news'" class="field mb-3">
+              <label
+                class="mb-1"
+                v-text="$t('POSTS.popular')"/>
 
-        <SelectFieldDynamic v-model="form.tags"
-                            vid="tag"
-                            class="mb-3"
-                            mode="multiple"
-                            :field="$t('TAG.name')"
-                            :label="$t('TAG.name')"
-                            :options="this.optionTags"/>
+              <div>
+                <a-switch v-model="form.additional.is_popular" />
+              </div>
+            </div>
+          </a-col>
+
+          <a-col :span="12">
+            <SelectFieldDynamic v-model="form.tags"
+                                vid="tag"
+                                class="mb-3"
+                                mode="multiple"
+                                :field="$t('TAG.name')"
+                                :label="$t('TAG.name')"
+                                :options="this.optionTags"/>
+          </a-col>
+        </a-row>
 
         <TextAreaField v-model="form.description"
                        vid="description"
@@ -160,6 +177,7 @@ export default {
         fileIds: [],
         is_published: 1,
         additional: {
+          author: '',
           is_popular: false
         }
       },
@@ -178,6 +196,7 @@ export default {
       this.form.fileIds = [this.detail.images[0].id]
       this.form.is_published = this.detail.is_published ? 1 : 0
       this.form.additional.is_popular = this.detail.additional.is_popular
+      this.form.additional.author = this.detail.additional.author
     }
   },
 
