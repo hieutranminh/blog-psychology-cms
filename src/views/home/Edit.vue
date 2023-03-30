@@ -31,7 +31,7 @@
           <a-col :span="24">
             <InputField v-model="form.value.banner.title"
                         vid="title"
-                        rules="required|max:150"
+                        rules="max:150"
                         class="mb-2"
                         :field="$t('COMMON.title')"
                         :label="$t('COMMON.title')"/>
